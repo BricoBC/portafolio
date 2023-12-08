@@ -1,21 +1,44 @@
 <template>
   <q-page class="flex flex-center">
+    <!-- First section -->
+    <section style="width: 100%" class="row justify-around bg-secondary">
+      <!-- section left -->
+      <div style="width: 50%">
+        <h3 class="txtOsw">
+          ¡Hola, soy {{ name }}!
+        </h3>
+        <q-separator inset />
 
-    <section style="width: 100%;" class="row justify-around bg-primary">
-      <div style="width: 50%;">
-        Hola
+        <q-expansion-item
+        expand-separator
+        icon="perm_identity"
+        :label=nameUniversidad
+        caption="Licenciatura"
+      >
+      <q-card flat bordered>
+          <q-card-section>
+            <div class="text-h6"> {{ nameUniversidad }} </div>
+            
+          </q-card-section>
+          
+          
+        
+        </q-card>
+      </q-expansion-item>
+
+
+
+    
+        
+        
+        
       </div>
-
-      <div style="width: 40%;">
-        <q-img src="../assets/images/Personal.jpg" alt="Foto_personal">
-          <div class="absolute-bottom text-subtitle1 text-center">
-            Hola, soy {{ name }}.
-          </div>
-        </q-img>
+      
+      <!-- section right -->
+      <div style="width: 40%">
+        <q-img src="../assets/images/Personal.jpg" alt="Foto_personal"> </q-img>
       </div>
-
     </section>
-
   </q-page>
 </template>
 
@@ -28,10 +51,18 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
+      nameUniversidad: "Universidad Autónomoa del Estado de México"
     };
   },
-  methods: {
-    
-  },
+  methods: {},
 });
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.txtOsw{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4vw;
+  }
+</style>
