@@ -91,6 +91,7 @@
                   La importancia de la ciberseguridad en la Transformación
                   digital
                 </li>
+                <li class="">Big data, Analytics and Data Science</li>
                 <li class="">Base de Datos en la Nube</li>
                 <li class="">Autonomous NoSQL Database in Cloud (ANDC)</li>
                 <div class="fit row justify-end q-mt-md">
@@ -105,6 +106,55 @@
                 </div>
               </q-card-section>
             </q-card>
+          </q-expansion-item>
+
+          <q-expansion-item
+            :header-inset-level="1"
+            expand-separator
+            icon="cast_for_education"
+            label="Platzi"
+            caption=""
+            default-opened
+          >
+            <q-expansion-item
+              :header-inset-level="2"
+              :content-inset-level="3"
+              expand-separator
+              icon="query_stats"
+              label="Análisis de datos"
+              caption=""
+              default-opened
+            >
+              <q-card
+                flat
+                bordered
+                style="background-color: rgba(255, 255, 255, 0.299)"
+              >
+                <q-card-section>
+                  <li>
+                    Principios de visualización de datos para Business
+                    intelligence
+                  </li>
+                  <li>
+                    Tableau: Visualización de datos y storytelling para negocios
+                  </li>
+                  <li>Análisis de datos con Power BI</li>
+                  <li>Bases de datos: Postgres sql</li>
+                  <li>Excel básico</li>
+                  <q-separator inset />
+                  <li>Lenguaje de programación <b>python profesional</b></li>
+                  <li>Comprehensions, lambdas y manejo de errores</li>
+                  <li>Programación orientada a objetos y algoritmos</li>
+                  <li>
+                    Manipulación y Transformación de datos con pandas y numpy
+                  </li>
+                  <li>Visualización de datos con Matplotlib y Seaborn</li>
+                  <li>
+                    Matemáticas para data science: estadistica descriptiva
+                  </li>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
           </q-expansion-item>
         </q-expansion-item>
       </div>
