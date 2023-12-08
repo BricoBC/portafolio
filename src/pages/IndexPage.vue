@@ -7,13 +7,7 @@
         <h3 class="txtImportant">¡Hola, soy {{ name }}!</h3>
         <q-separator inset />
         <!-- ESCUELA -->
-        <q-expansion-item
-          popup
-          icon="school"
-          label="Preparación academica"
-          caption="Estudios"
-          default-opened
-        >
+        <q-expansion-item popup icon="school" label="Estudios">
           <q-expansion-item
             :header-inset-level="1"
             :content-inset-level="1"
@@ -21,7 +15,6 @@
             icon="history_edu"
             :label="nameUniversidad"
             caption="Licenciatura"
-            default-opened
           >
             <q-card
               flat
@@ -42,7 +35,6 @@
             icon="history_edu"
             label="Colegio de Bachilleres plantel #19 'Ecatepec'"
             caption="Medio superior"
-            default-opened
           >
             <q-card
               flat
@@ -58,13 +50,7 @@
         </q-expansion-item>
 
         <!-- CURSOS -->
-        <q-expansion-item
-          popup
-          expand-separator
-          icon="badge"
-          label="Cursos"
-          default-opened
-        >
+        <q-expansion-item popup expand-separator icon="badge" label="Cursos">
           <!-- CURSOS: Oracle -->
           <q-expansion-item
             :header-inset-level="1"
@@ -73,7 +59,6 @@
             icon="cloud_circle"
             label="Oracle Academy"
             caption=""
-            default-opened
           >
             <q-card
               flat
@@ -115,7 +100,6 @@
             icon="cast_for_education"
             label="Platzi"
             caption=""
-            default-opened
           >
             <q-expansion-item
               :header-inset-level="2"
@@ -124,7 +108,6 @@
               icon="query_stats"
               label="Análisis de datos"
               caption=""
-              default-opened
             >
               <q-card
                 flat
