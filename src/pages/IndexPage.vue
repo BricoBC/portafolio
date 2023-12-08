@@ -23,9 +23,35 @@
             caption="Licenciatura"
             default-opened
           >
-            <q-card flat bordered>
-              <q-card-section>
-                <div class="text-h6">Ingenieria en computación</div>
+            <q-card
+              flat
+              bordered
+              style="background-color: rgba(255, 255, 255, 0.299)"
+            >
+              <q-card-section style="list-style: none">
+                <li class="">Licenciatura: Ingenieria en computación</li>
+                <li class="">Ciclo escolar: 2018 - Actualidad</li>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+
+          <q-expansion-item
+            :header-inset-level="1"
+            :content-inset-level="1"
+            expand-separator
+            icon="history_edu"
+            label="Colegio de Bachilleres plantel #19 'Ecatepec'"
+            caption="Medio superior"
+            default-opened
+          >
+            <q-card
+              flat
+              bordered
+              style="background-color: rgba(255, 255, 255, 0.299)"
+            >
+              <q-card-section style="list-style: none">
+                <li class="">Salida ocupacional: Informática - Programador</li>
+                <li class="">Ciclo escolar: 2015 - 2018</li>
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -44,29 +70,39 @@
             :content-inset-level="2"
             expand-separator
             icon="cloud_circle"
-            label="Academica"
-            caption="Oracle Academy"
+            label="Oracle Academy"
+            caption=""
             default-opened
           >
-            <q-card flat bordered>
+            <q-card
+              flat
+              bordered
+              style="background-color: rgba(255, 255, 255, 0.299)"
+            >
               <q-card-section>
-                <li class="text-h6">
-                  Prefiles profesionales en la industria de Tecnología
+                <li class="">
+                  Perfiles profesionales en la industria de Tecnología
                 </li>
-                <li class="text-h6">Nube 101</li>
-                <li class="text-h6">Internet of things</li>
-                <li class="text-h6">
-                  Evolucion de la Inteligencia Empresarial
-                </li>
-                <li class="text-h6">Experiencia digital</li>
-                <li class="text-h6">
+                <li class="">Nube 101</li>
+                <li class="">Internet of things</li>
+                <li class="">Evolucion de la Inteligencia Empresarial</li>
+                <li class="">Experiencia digital</li>
+                <li class="">
                   La importancia de la ciberseguridad en la Transformación
                   digital
                 </li>
-                <li class="text-h6">Base de Datos en la Nube</li>
-                <li class="text-h6">
-                  Autonomous NoSQL Database in Cloud (ANDC)
-                </li>
+                <li class="">Base de Datos en la Nube</li>
+                <li class="">Autonomous NoSQL Database in Cloud (ANDC)</li>
+                <div class="fit row justify-end q-mt-md">
+                  <q-btn
+                    class="content-end"
+                    outline
+                    color="accent"
+                    icon="settings_system_daydream"
+                    label="Ver certificaciones..."
+                    href="https://drive.google.com/drive/folders/1QRhMEJelBh3hCGuneQ8qBviib2YQZ_9j?usp=sharing"
+                  />
+                </div>
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -103,5 +139,10 @@ export default defineComponent({
 .txtImportant {
   font-family: "Bebas Neue", sans-serif;
   font-size: 4vw;
+}
+
+.txtSecond {
+  font-size: 1.5vw;
+  background-color: rgba(0, 0, 0, 0.299);
 }
 </style>
