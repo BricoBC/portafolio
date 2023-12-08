@@ -66,7 +66,6 @@
           default-opened
         >
           <!-- CURSOS: Oracle -->
-
           <q-expansion-item
             :header-inset-level="1"
             :content-inset-level="2"
@@ -154,6 +153,29 @@
                   <li>
                     Matemáticas para data science: estadistica descriptiva
                   </li>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              :header-inset-level="2"
+              :content-inset-level="3"
+              expand-separator
+              icon="code"
+              label="Desarrollador web"
+              caption=""
+            >
+              <q-card
+                flat
+                bordered
+                style="background-color: rgba(255, 255, 255, 0.299)"
+              >
+                <q-card-section>
+                  <li>Diseño Web profesional</li>
+                  <li>Javascript</li>
+                  <li>Asincronismo con js</li>
+                  <li>Git y Github</li>
+                  <li>Ecmascript</li>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
