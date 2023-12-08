@@ -65,6 +65,8 @@
           label="Cursos"
           default-opened
         >
+          <!-- CURSOS: Oracle -->
+
           <q-expansion-item
             :header-inset-level="1"
             :content-inset-level="2"
@@ -96,7 +98,6 @@
                 <li class="">Autonomous NoSQL Database in Cloud (ANDC)</li>
                 <div class="fit row justify-end q-mt-md">
                   <q-btn
-                    class="content-end"
                     outline
                     color="accent"
                     icon="settings_system_daydream"
@@ -108,6 +109,7 @@
             </q-card>
           </q-expansion-item>
 
+          <!-- CURSOS: platzi -->
           <q-expansion-item
             :header-inset-level="1"
             expand-separator
@@ -155,6 +157,16 @@
                 </q-card-section>
               </q-card>
             </q-expansion-item>
+
+            <div class="fit row justify-end q-mt-md">
+              <q-btn
+                outline
+                color="accent"
+                icon="cast_for_education"
+                label="Ver certificaciones..."
+                href="https://drive.google.com/drive/folders/1zO3oGFOSutZoH2TRWMy_m15o1MHFJ-Vv?usp=sharing"
+              />
+            </div>
           </q-expansion-item>
         </q-expansion-item>
       </div>
