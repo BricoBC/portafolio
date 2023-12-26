@@ -7,7 +7,7 @@
         <h3 class="txtImportant">¡Hola, soy {{ name }}!</h3>
         <q-separator inset />
         <!-- ESCUELA -->
-        <q-expansion-item popup icon="school" label="Estudios">
+        <q-expansion-item popup icon="school" label="Mi formación acádemica">
           <q-expansion-item
             v-for="school of schools"
             :key="school.name"
@@ -32,7 +32,12 @@
         </q-expansion-item>
 
         <!-- CURSOS -->
-        <q-expansion-item popup expand-separator icon="badge" label="Cursos">
+        <q-expansion-item
+          popup
+          expand-separator
+          icon="badge"
+          label="Mis cursos"
+        >
           <q-expansion-item
             v-for="curso of cursos"
             :key="curso.school"
@@ -45,7 +50,7 @@
             <q-expansion-item
               v-for="carrera of curso.about"
               :key="carrera.ruta"
-              :header-inset-level="1"
+              :header-inset-level="2"
               :content-inset-level="carrera.col"
               expand-separator
               :icon="carrera.icon"
@@ -109,8 +114,9 @@ export default defineComponent({
           icon: "cloud_circle",
           about: [
             {
-              ruta: "",
-              col: 1,
+              ruta: "Escuela",
+              col: 2,
+              icon: "history_edu",
               courses: [
                 "Perfiles profesionales en la industria de Tecnología",
                 "Nube 101",
