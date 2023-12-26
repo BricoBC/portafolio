@@ -9,12 +9,14 @@
         <!-- ESCUELA -->
         <q-expansion-item popup icon="school" label="Estudios">
           <q-expansion-item
+            v-for="school of schools"
+            :key="school.name"
             :header-inset-level="1"
             :content-inset-level="1"
             expand-separator
             icon="history_edu"
-            :label="nameUniversidad"
-            caption="Licenciatura"
+            :label="school.name"
+            :caption="school.nivel"
           >
             <q-card
               flat
@@ -22,28 +24,8 @@
               style="background-color: rgba(255, 255, 255, 0.299)"
             >
               <q-card-section style="list-style: none">
-                <li class="">Licenciatura: Ingenieria en computación</li>
-                <li class="">Ciclo escolar: 2018 - Actualidad</li>
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-
-          <q-expansion-item
-            :header-inset-level="1"
-            :content-inset-level="1"
-            expand-separator
-            icon="history_edu"
-            label="Colegio de Bachilleres plantel #19 'Ecatepec'"
-            caption="Medio superior"
-          >
-            <q-card
-              flat
-              bordered
-              style="background-color: rgba(255, 255, 255, 0.299)"
-            >
-              <q-card-section style="list-style: none">
-                <li class="">Salida ocupacional: Informática - Programador</li>
-                <li class="">Ciclo escolar: 2015 - 2018</li>
+                <li class="">{{ school.about[0] }}</li>
+                <li class="">{{ school.about[1] }}</li>
               </q-card-section>
             </q-card>
           </q-expansion-item>
@@ -51,62 +33,23 @@
 
         <!-- CURSOS -->
         <q-expansion-item popup expand-separator icon="badge" label="Cursos">
-          <!-- CURSOS: Oracle -->
           <q-expansion-item
-            :header-inset-level="1"
-            :content-inset-level="2"
-            expand-separator
-            icon="cloud_circle"
-            label="Oracle Academy"
-            caption=""
-          >
-            <q-card
-              flat
-              bordered
-              style="background-color: rgba(255, 255, 255, 0.299)"
-            >
-              <q-card-section>
-                <li class="">
-                  Perfiles profesionales en la industria de Tecnología
-                </li>
-                <li class="">Nube 101</li>
-                <li class="">Internet of things</li>
-                <li class="">Evolucion de la Inteligencia Empresarial</li>
-                <li class="">Experiencia digital</li>
-                <li class="">
-                  La importancia de la ciberseguridad en la Transformación
-                  digital
-                </li>
-                <li class="">Big data, Analytics and Data Science</li>
-                <li class="">Base de Datos en la Nube</li>
-                <li class="">Autonomous NoSQL Database in Cloud (ANDC)</li>
-                <div class="fit row justify-end q-mt-md">
-                  <q-btn
-                    outline
-                    color="accent"
-                    icon="settings_system_daydream"
-                    label="Ver certificaciones..."
-                    href="https://drive.google.com/drive/folders/1QRhMEJelBh3hCGuneQ8qBviib2YQZ_9j?usp=sharing"
-                  />
-                </div>
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-
-          <!-- CURSOS: platzi -->
-          <q-expansion-item
+            v-for="curso of cursos"
+            :key="curso.school"
             :header-inset-level="1"
             expand-separator
-            icon="cast_for_education"
-            label="Platzi"
+            :icon="curso.icon"
+            :label="curso.school"
             caption=""
           >
             <q-expansion-item
-              :header-inset-level="2"
-              :content-inset-level="3"
+              v-for="carrera of curso.about"
+              :key="carrera.ruta"
+              :header-inset-level="1"
+              :content-inset-level="carrera.col"
               expand-separator
-              icon="query_stats"
-              label="Análisis de datos"
+              :icon="carrera.icon"
+              :label="carrera.ruta != '' ? carrera.ruta : 'Alo'"
               caption=""
             >
               <q-card
@@ -115,63 +58,12 @@
                 style="background-color: rgba(255, 255, 255, 0.299)"
               >
                 <q-card-section>
-                  <li>
-                    Principios de visualización de datos para Business
-                    intelligence
-                  </li>
-                  <li>
-                    Tableau: Visualización de datos y storytelling para negocios
-                  </li>
-                  <li>Análisis de datos con Power BI</li>
-                  <li>Bases de datos: Postgres sql</li>
-                  <li>Excel básico</li>
-                  <q-separator inset />
-                  <li>Lenguaje de programación <b>python profesional</b></li>
-                  <li>Comprehensions, lambdas y manejo de errores</li>
-                  <li>Programación orientada a objetos y algoritmos</li>
-                  <li>
-                    Manipulación y Transformación de datos con pandas y numpy
-                  </li>
-                  <li>Visualización de datos con Matplotlib y Seaborn</li>
-                  <li>
-                    Matemáticas para data science: estadistica descriptiva
+                  <li v-for="(course, index) in carrera.courses" :key="index">
+                    {{ course }}
                   </li>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
-
-            <q-expansion-item
-              :header-inset-level="2"
-              :content-inset-level="3"
-              expand-separator
-              icon="code"
-              label="Desarrollador web"
-              caption=""
-            >
-              <q-card
-                flat
-                bordered
-                style="background-color: rgba(255, 255, 255, 0.299)"
-              >
-                <q-card-section>
-                  <li>Diseño Web profesional</li>
-                  <li>Javascript</li>
-                  <li>Asincronismo con js</li>
-                  <li>Git y Github</li>
-                  <li>Ecmascript</li>
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-
-            <div class="fit row justify-end q-mt-md">
-              <q-btn
-                outline
-                color="accent"
-                icon="cast_for_education"
-                label="Ver certificaciones..."
-                href="https://drive.google.com/drive/folders/1zO3oGFOSutZoH2TRWMy_m15o1MHFJ-Vv?usp=sharing"
-              />
-            </div>
           </q-expansion-item>
         </q-expansion-item>
       </div>
@@ -186,14 +78,84 @@
 
 <script>
 import { defineComponent } from "vue";
-import { apiFotos } from "src/boot/axios";
 
 export default defineComponent({
   name: "IndexPage",
   data() {
     return {
       name: "Bruno Nicolas",
-      nameUniversidad: "Universidad Autónomoa del Estado de México",
+      schools: [
+        {
+          name: "Universidad Autónomoa del Estado de México",
+          nivel: "Superior",
+          about: [
+            "Licenciatura: Ingenieria en computación",
+            "Ciclo escolar: 2018 - Actualidad",
+          ],
+        },
+        {
+          name: "Colegio de Bachilleres plantel #19",
+          nivel: "Medio Superior",
+          about: [
+            "Salida ocupacional: Informática - Programador",
+            "Ciclo escolar: 2015 - 2018",
+          ],
+        },
+      ],
+
+      cursos: [
+        {
+          school: "Oracle Academy",
+          icon: "cloud_circle",
+          about: [
+            {
+              ruta: "",
+              col: 1,
+              courses: [
+                "Perfiles profesionales en la industria de Tecnología",
+                "Nube 101",
+                "Internet of things",
+                "Evolucion de la Inteligencia Empresarial",
+                "Experiencia Digital",
+                "La importancia de la ciberseguridad en la Transformación digital",
+                "Big data, Analytics and Data Science",
+                "Base de Datos en la Nube",
+                "Autonomous NoSQL Database in Cloud (ANDC)",
+              ],
+            },
+          ],
+        },
+        {
+          school: "Platzi",
+          icon: "cast_for_education",
+          about: [
+            {
+              ruta: "Análista de Datos",
+              col: 2,
+              icon: "query_stats",
+              courses: [
+                "Principios de visualización de datos para Business intelligence",
+                "Tableau: Visualización de datos y storytelling para negocios",
+                "Análisis de datos con Power BI",
+                "Bases de datos: Postgres sql",
+                "Excel Básico",
+              ],
+            },
+            {
+              ruta: "Desarrollo web",
+              col: 2,
+              icon: "code",
+              courses: [
+                "Diseño web profesional",
+                "Javascript",
+                "Asincronismo con JS",
+                "Git y Github",
+                "Ecmascript",
+              ],
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {},
