@@ -3,17 +3,16 @@
     <!-- First section -->
     <section
       style="width: 100%; height: 100vh"
-      class="row justify-around bg-secondary"
+      class="row justify-around bg-dark"
     >
       <!-- section left -->
       <div style="width: 50%">
         <h3 class="txtH1 text-center">¡Hola, soy {{ name }}!</h3>
-        <q-separator color="primary" inset />
 
         <q-carousel
           v-model="slide"
-          transition-prev="coverflow"
-          transition-next="coverflow"
+          transition-prev="fade"
+          transition-next="fade"
           control-type="unelevated"
           vertical
           swipeable
@@ -21,8 +20,8 @@
           padding
           control-color="white"
           navigation
-          height="70vh"
-          class="bg-secondary card rounded-borders"
+          height="75vh"
+          class="bg-dark card rounded-borders"
         >
           <!-- Escuela -->
           <q-carousel-slide
@@ -55,6 +54,50 @@
             name="cursos"
             class="column no-wrap flex-center q-pa-md"
           >
+            <div class="row flex-center">
+              <h3 class="q-mx-md q-my-lg">
+                <b>Todos los cursos que he tomado</b>
+              </h3>
+              <q-icon name="history_edu" size="40px" />
+            </div>
+          </q-carousel-slide>
+
+          <q-carousel-slide
+            name="experiencia"
+            class="column no-wrap flex-center sinPadding"
+          >
+            <q-scroll-area class="fit">
+              <div class="row flex-center">
+                <h3 class="q-mx-md q-my-lg">
+                  <b>He trabajado... </b>
+                </h3>
+                <q-icon name="work_outline" size="40px" />
+              </div>
+              <q-card
+                v-for="job in jobs"
+                :key="job.name"
+                class="q-my-md card bg-secondary"
+              >
+                <q-card-section class="text-center">
+                  <q-expansion-item
+                    group="somegroup"
+                    dense
+                    dense-toggle
+                    expand-separator
+                    icon="perm_identity"
+                    :label="job.name"
+                    :caption="job.ocupation"
+                    header-class="txtTitle"
+                  >
+                    <q-card>
+                      <q-card-section class="bg-secondary txtNormal">
+                        {{ job.description }}
+                      </q-card-section>
+                    </q-card>
+                  </q-expansion-item>
+                </q-card-section>
+              </q-card>
+            </q-scroll-area>
           </q-carousel-slide>
         </q-carousel>
       </div>
@@ -78,7 +121,7 @@ export default defineComponent({
       slide: "school",
       schools: [
         {
-          name: "Universidad Autónomoa del Estado de México Plantel 'Ecatepec'",
+          name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
           nivel: "Superior",
           about: [
             "Licenciatura: Ingenieria en computación",
@@ -97,7 +140,7 @@ export default defineComponent({
 
       cursos: [
         {
-          school: "Escuela",
+          school: "UAEM",
           icon: "history_edu",
           about: [
             {
@@ -149,6 +192,40 @@ export default defineComponent({
           ],
         },
       ],
+      jobs: [
+        {
+          name: "Tribunal de la Justicia Administrativa de la Ciudad de México",
+          ocupation: "Análista de datos y desarrollador web",
+          time: "Mayo 2023 a Noviembre 2023",
+          description: `En mi estancia de prácticas profesionales participé en el desarrollo de un sistema que
+            permitiría al personal ejecutivo tomar decisiones estratégicas a través de la información
+            almacenada en sus bases de datos. Al final de cada semestre, los trabajadores tenían la
+            responsabilidad de entregar un informe semestral, por lo que la finalidad del sistema era
+            brindar apoyo para la elaboración de este informe.`,
+        },
+        {
+          name: "Teconología en Informática Múltiple SA CV",
+          ocupation: "Técnico en equipos de cómputo",
+          time: "Enero 2022 a Junio 2022",
+          description: `Durante mi servicio social, llevé a cabo labores de mantenimiento preventivo y correctivo
+            en los equipos de cómputo utilizados por la FES Zaragoza. Además, fue necesario elaborar
+            un registro de las áreas a las cuales se les realizaba mantenimiento, generando un informe
+            al finalizar dichas labores tanto para la dependencia escolar como para la institución donde
+            estaba realizando mis prácticas.`,
+        },
+        {
+          name: "Solution Networks",
+          ocupation: "Desarrollador FullStack",
+          time: "Septiembre 2021 a Enero 2022",
+          description: `Desarrollé un sistema web para una empresa de servicios técnicos, que incluía electricidad,
+          plomería, entre otros. El objetivo principal era facilitar el registro de los servicios solicitados
+          por los clientes y automatizar la asignación de tareas a los trabajadores. Esto implicaba
+          informarles sobre la ubicación, descripción del trabajo y la posibilidad de generar un informe
+          basado en un documento específico.
+          Desde el punto de vista administrativo, se requería llevar un registro contable de todos los
+          trabajos realizados en diferentes periodos, ya sea mensual, semanal o quincenal.`,
+        },
+      ],
     };
   },
   methods: {},
@@ -157,6 +234,9 @@ export default defineComponent({
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  color: #ffffff;
+}
 
 .txtH1 {
   font-family: "Bebas Neue", sans-serif;
@@ -168,6 +248,9 @@ export default defineComponent({
   font-size: 1.5vw;
   background-color: rgba(0, 0, 0, 0.299);
 }
+.txtTitle {
+  font-size: 1.3vw;
+}
 .txtNormal {
   font-size: 1vw;
 }
@@ -178,7 +261,8 @@ export default defineComponent({
   margin: 0;
 }
 .card {
-  border-color: rgb(64, 57, 57);
+  border-color: #5f704a;
+  background-color: transparent;
   border-style: solid;
   border-radius: 1vw;
   padding: 15px;
