@@ -1,82 +1,66 @@
 <template>
   <q-page class="flex flex-center">
     <!-- First section -->
-    <section style="width: 100%" class="row justify-around bg-secondary">
+    <section
+      style="width: 100%; height: 100vh"
+      class="row justify-around bg-secondary"
+    >
       <!-- section left -->
       <div style="width: 50%">
-        <h3 class="txtImportant">¡Hola, soy {{ name }}!</h3>
-        <q-separator inset />
-        <!-- ESCUELA -->
-        <q-expansion-item popup icon="school" label="Mi formación acádemica">
-          <q-expansion-item
-            v-for="school of schools"
-            :key="school.name"
-            :header-inset-level="1"
-            :content-inset-level="1"
-            expand-separator
-            icon="history_edu"
-            :label="school.name"
-            :caption="school.nivel"
-          >
-            <q-card
-              flat
-              bordered
-              style="background-color: rgba(255, 255, 255, 0.299)"
-            >
-              <q-card-section style="list-style: none">
-                <li class="">
-                  <b>{{ school.about[0] }}</b>
-                </li>
-                <li class="">{{ school.about[1] }}</li>
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-        </q-expansion-item>
+        <h3 class="txtH1 text-center">¡Hola, soy {{ name }}!</h3>
+        <q-separator color="primary" inset />
 
-        <!-- CURSOS -->
-        <q-expansion-item
-          popup
-          expand-separator
-          icon="badge"
-          label="Mis cursos"
+        <q-carousel
+          v-model="slide"
+          transition-prev="coverflow"
+          transition-next="coverflow"
+          control-type="unelevated"
+          vertical
+          swipeable
+          animated
+          padding
+          control-color="white"
+          navigation
+          height="70vh"
+          class="bg-secondary card rounded-borders"
         >
-          <q-expansion-item
-            v-for="curso of cursos"
-            :key="curso.school"
-            :header-inset-level="1"
-            expand-separator
-            :icon="curso.icon"
-            :label="curso.school"
-            caption=""
+          <!-- Escuela -->
+          <q-carousel-slide
+            name="school"
+            class="column no-wrap flex-center q-pa-md"
           >
-            <q-expansion-item
-              v-for="carrera of curso.about"
-              :key="carrera.ruta"
-              :header-inset-level="2"
-              :content-inset-level="carrera.col"
-              expand-separator
-              :icon="carrera.icon"
-              :label="carrera.ruta != '' ? carrera.ruta : 'Alo'"
-              caption=""
+            <div class="row flex-center">
+              <h3 class="q-mx-md q-my-lg"><b>Mi educación</b></h3>
+              <q-icon name="history_edu" size="40px" />
+            </div>
+
+            <div
+              v-for="(school, it) in schools"
+              :key="it"
+              class="q-my-md text-center card"
             >
-              <q-card
-                flat
-                bordered
-                style="background-color: rgba(255, 255, 255, 0.299)"
+              <h4 class="q-my-md">{{ school.name }}</h4>
+              <h5 class="sinMargin">Nivel: {{ school.nivel }}</h5>
+              <li
+                class="txtNormal"
+                v-for="(item, id) in school.about"
+                :key="id"
               >
-                <q-card-section>
-                  <li v-for="(course, index) in carrera.courses" :key="index">
-                    {{ course }}
-                  </li>
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-          </q-expansion-item>
-        </q-expansion-item>
+                {{ item }}
+              </li>
+            </div>
+          </q-carousel-slide>
+
+          <q-carousel-slide
+            name="cursos"
+            class="column no-wrap flex-center q-pa-md"
+          >
+          </q-carousel-slide>
+        </q-carousel>
       </div>
 
       <!-- section right -->
-      <div style="width: 30%">
+      <div style="width: 35%">
         <q-img src="../assets/images/Personal.jpg" alt="Foto_personal"> </q-img>
       </div>
     </section>
@@ -91,9 +75,10 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
+      slide: "school",
       schools: [
         {
-          name: "Universidad Autónomoa del Estado de México",
+          name: "Universidad Autónomoa del Estado de México Plantel 'Ecatepec'",
           nivel: "Superior",
           about: [
             "Licenciatura: Ingenieria en computación",
@@ -101,7 +86,7 @@ export default defineComponent({
           ],
         },
         {
-          name: "Colegio de Bachilleres plantel #19",
+          name: "Colegio de Bachilleres plantel #19 'Ecatepec'",
           nivel: "Medio Superior",
           about: [
             "Salida ocupacional: Informática - Programador",
@@ -173,13 +158,29 @@ export default defineComponent({
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-.txtImportant {
+.txtH1 {
   font-family: "Bebas Neue", sans-serif;
   font-size: 4vw;
+  margin: 2vw 0;
 }
 
 .txtSecond {
   font-size: 1.5vw;
   background-color: rgba(0, 0, 0, 0.299);
+}
+.txtNormal {
+  font-size: 1vw;
+}
+.sinPadding {
+  padding: 0;
+}
+.sinMargin {
+  margin: 0;
+}
+.card {
+  border-color: rgb(64, 57, 57);
+  border-style: solid;
+  border-radius: 1vw;
+  padding: 15px;
 }
 </style>
