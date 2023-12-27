@@ -50,6 +50,7 @@
             </div>
           </q-carousel-slide>
 
+          <!-- CURSOS -->
           <q-carousel-slide
             name="cursos"
             class="column no-wrap flex-center q-pa-md"
@@ -60,10 +61,52 @@
               </h3>
               <q-icon name="history_edu" size="40px" />
             </div>
+            <div class="" style="width: 90%; height: 90vh">
+              <q-card>
+                <q-tabs
+                  class="bg-primary"
+                  v-model="tab"
+                  active-color="dark"
+                  indicator-color="dark"
+                  dense
+                >
+                  <q-tab name="mails" :label="cursos[0].school" />
+                  <q-tab name="alarms" :label="cursos[1].school" />
+                </q-tabs>
+
+                <q-tab-panels v-model="tab" animated class="bg-dark">
+                  <q-tab-panel name="mails">
+                    <div class="text-h6">Mails</div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </q-tab-panel>
+
+                  <q-tab-panel name="alarms">
+                    <div class="text-h6">
+                      <h5
+                        class="sinMargin"
+                        v-for="(name, i) in cursos[1].about"
+                        :key="i"
+                      >
+                        {{ name.ruta }}
+                        <li
+                          class="txtNormal"
+                          v-for="(course, i) in name.courses"
+                          :key="i"
+                        >
+                          {{ course }}
+                        </li>
+                        <q-separator />
+                      </h5>
+                    </div>
+                  </q-tab-panel>
+                </q-tab-panels>
+              </q-card>
+            </div>
           </q-carousel-slide>
 
+          <!-- TRABAJO -->
           <q-carousel-slide
-            name="experiencia"
+            name="job"
             class="column no-wrap flex-center sinPadding"
           >
             <q-scroll-area class="fit">
@@ -118,7 +161,7 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
-      slide: "school",
+      slide: "cursos",
       schools: [
         {
           name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
@@ -137,7 +180,7 @@ export default defineComponent({
           ],
         },
       ],
-
+      tab: "mails",
       cursos: [
         {
           school: "UAEM",
