@@ -74,7 +74,7 @@
       </div>
 
       <!-- section right -->
-      <div style="width: 40%">
+      <div style="width: 30%">
         <q-img src="../assets/images/Personal.jpg" alt="Foto_personal"> </q-img>
       </div>
     </section>
@@ -110,13 +110,13 @@ export default defineComponent({
 
       cursos: [
         {
-          school: "Oracle Academy",
-          icon: "cloud_circle",
+          school: "Escuela",
+          icon: "history_edu",
           about: [
             {
-              ruta: "Escuela",
+              ruta: "Oracle Academy",
               col: 2,
-              icon: "history_edu",
+              icon: "cloud_circle",
               courses: [
                 "Perfiles profesionales en la industria de Tecnología",
                 "Nube 101",
