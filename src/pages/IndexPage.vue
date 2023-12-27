@@ -24,7 +24,9 @@
               style="background-color: rgba(255, 255, 255, 0.299)"
             >
               <q-card-section style="list-style: none">
-                <li class="">{{ school.about[0] }}</li>
+                <li class="">
+                  <b>{{ school.about[0] }}</b>
+                </li>
                 <li class="">{{ school.about[1] }}</li>
               </q-card-section>
             </q-card>
