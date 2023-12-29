@@ -172,6 +172,18 @@
               </q-card>
             </q-scroll-area>
           </q-carousel-slide>
+
+          <q-carousel-slide name="portfolio">
+            <q-scroll-area class="fit">
+              <h3 class="q-mx-md q-my-lg">
+                <b>Mis proyectos están en... </b>
+              </h3>
+
+              <div v-for="project in portfolio" :key="project.name_platform">
+                <h5>{{ project.name_platform }}</h5>
+              </div>
+            </q-scroll-area>
+          </q-carousel-slide>
         </q-carousel>
       </div>
 
@@ -333,6 +345,21 @@ export default defineComponent({
           basado en un documento específico.
           Desde el punto de vista administrativo, se requería llevar un registro contable de todos los
           trabajos realizados en diferentes periodos, ya sea mensual, semanal o quincenal.`,
+        },
+      ],
+      portfolio: [
+        {
+          name_platform: "Google Collaboratory",
+          url_platform:
+            "https://drive.google.com/drive/folders/1ReelDQDxzI0JGf82yEASQ0ZDbsKyWeYJ",
+        },
+        {
+          name_platform: "Tableau",
+          url_platform: "https://public.tableau.com/app/profile/bricobc/vizzes",
+        },
+        {
+          name_platform: "GitHub",
+          url_platform: "https://github.com/BricoBC?tab=repositories",
         },
       ],
     };
