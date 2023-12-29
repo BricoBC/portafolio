@@ -29,8 +29,8 @@
             class="column no-wrap flex-center q-pa-md"
           >
             <div class="row flex-center">
-              <h3 class="q-mx-md q-my-lg"><b>Mi educación</b></h3>
               <q-icon name="history_edu" size="40px" />
+              <h3 class="q-mx-md q-my-lg"><b>He estudiado...</b></h3>
             </div>
 
             <div
@@ -56,10 +56,10 @@
             class="column no-wrap flex-center q-pa-md"
           >
             <div class="row flex-center">
-              <h3 class="q-mx-md q-my-lg">
-                <b>Todos los cursos que he tomado</b>
-              </h3>
               <q-icon name="history_edu" size="40px" />
+              <h3 class="q-mx-md q-my-lg">
+                <b>Estos son mis cursos que he tomado: </b>
+              </h3>
             </div>
             <div class="" style="width: 90%; height: 90vh">
               <q-card>
@@ -141,10 +141,10 @@
           >
             <q-scroll-area class="fit">
               <div class="row flex-center">
-                <h3 class="q-mx-md q-my-lg">
-                  <b>He trabajado... </b>
-                </h3>
                 <q-icon name="work_outline" size="40px" />
+                <h3 class="q-mx-md q-my-lg">
+                  <b>He trabajado en... </b>
+                </h3>
               </div>
               <q-card
                 v-for="job in jobs"
