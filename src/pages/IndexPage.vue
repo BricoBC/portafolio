@@ -193,7 +193,7 @@
               <div class="row justify-around">
                 <q-card-section
                   class="my-card bg-red-1 q-ma-md"
-                  style="width: 25%; height: 200px"
+                  style="width: 30%; height: 200px"
                   v-for="(techonology, id) in project.technologies"
                   :key="id"
                 >
