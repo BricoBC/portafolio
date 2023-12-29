@@ -1,210 +1,219 @@
 <template>
-  <q-page class="flex flex-center">
-    <!-- First section -->
-    <section
-      style="width: 100%; height: 100vh"
-      class="row justify-around bg-dark"
-    >
-      <!-- section left -->
-      <div style="width: 50%">
-        <h3 class="txtH1 text-center">¡Hola, soy {{ name }}!</h3>
+  <section
+    style="width: 100%; height: 100vh"
+    class="row justify-around bg-dark"
+  >
+    <!-- section left -->
+    <div style="width: 50%">
+      <h3 class="txtH1 text-center">¡Hola, soy {{ name }}!</h3>
 
-        <q-carousel
-          v-model="slide"
-          transition-prev="fade"
-          transition-next="fade"
-          control-type="unelevated"
-          vertical
-          swipeable
-          animated
-          padding
-          control-color="white"
-          navigation
-          height="75vh"
-          class="bg-dark card rounded-borders"
+      <q-carousel
+        v-model="slide"
+        transition-prev="fade"
+        transition-next="fade"
+        control-type="unelevated"
+        vertical
+        swipeable
+        animated
+        padding
+        control-color="white"
+        navigation
+        height="75vh"
+        class="bg-dark card rounded-borders"
+      >
+        <!-- Escuela -->
+        <q-carousel-slide
+          name="school"
+          class="column no-wrap flex-center q-pa-md"
         >
-          <!-- Escuela -->
-          <q-carousel-slide
-            name="school"
-            class="column no-wrap flex-center q-pa-md"
-          >
-            <div class="row flex-center">
-              <q-icon name="history_edu" size="40px" />
-              <h3 class="q-mx-md q-my-lg"><b>He estudiado...</b></h3>
-            </div>
+          <div class="row flex-center">
+            <q-icon name="history_edu" size="40px" />
+            <h3 class="q-mx-md q-my-lg"><b>He estudiado...</b></h3>
+          </div>
 
-            <div
-              v-for="(school, it) in schools"
-              :key="it"
-              class="q-my-md text-center card"
-            >
-              <h4 class="q-my-md">{{ school.name }}</h4>
-              <h5 class="sinMargin">Nivel: {{ school.nivel }}</h5>
-              <li
-                class="txtNormal"
-                v-for="(item, id) in school.about"
-                :key="id"
+          <div
+            v-for="(school, it) in schools"
+            :key="it"
+            class="q-my-md text-center card"
+          >
+            <h4 class="q-my-md">{{ school.name }}</h4>
+            <h5 class="sinMargin">Nivel: {{ school.nivel }}</h5>
+            <li class="txtNormal" v-for="(item, id) in school.about" :key="id">
+              {{ item }}
+            </li>
+          </div>
+        </q-carousel-slide>
+
+        <!-- CURSOS -->
+        <q-carousel-slide
+          name="cursos"
+          class="column no-wrap flex-center q-pa-md"
+        >
+          <div class="row flex-center">
+            <q-icon name="history_edu" size="40px" />
+            <h3 class="q-mx-md q-my-lg">
+              <b>Estos son mis cursos que he tomado: </b>
+            </h3>
+          </div>
+          <div class="" style="width: 90%; height: 90vh">
+            <q-card>
+              <q-tabs
+                class="bg-primary"
+                v-model="tab"
+                active-color="dark"
+                indicator-color="dark"
+                dense
               >
-                {{ item }}
-              </li>
-            </div>
-          </q-carousel-slide>
+                <q-tab name="oracle" :label="cursos[0].about[0].ruta" />
+                <q-tab name="platzi" :label="cursos[1].school" />
+              </q-tabs>
 
-          <!-- CURSOS -->
-          <q-carousel-slide
-            name="cursos"
-            class="column no-wrap flex-center q-pa-md"
-          >
-            <div class="row flex-center">
-              <q-icon name="history_edu" size="40px" />
-              <h3 class="q-mx-md q-my-lg">
-                <b>Estos son mis cursos que he tomado: </b>
-              </h3>
-            </div>
-            <div class="" style="width: 90%; height: 90vh">
-              <q-card>
-                <q-tabs
-                  class="bg-primary"
-                  v-model="tab"
-                  active-color="dark"
-                  indicator-color="dark"
-                  dense
-                >
-                  <q-tab name="oracle" :label="cursos[0].about[0].ruta" />
-                  <q-tab name="platzi" :label="cursos[1].school" />
-                </q-tabs>
-
-                <q-tab-panels v-model="tab" animated class="bg-dark">
-                  <q-tab-panel name="oracle">
-                    <li
-                      class="txtNormal"
-                      v-for="(course, i) in cursos[0].about[0].courses"
-                      :key="i"
+              <q-tab-panels v-model="tab" animated class="bg-dark">
+                <q-tab-panel name="oracle">
+                  <li
+                    class="txtNormal"
+                    v-for="(course, i) in cursos[0].about[0].courses"
+                    :key="i"
+                  >
+                    <a
+                      target="_blank"
+                      :href="cursos[0].about[0].url_certificate[i]"
                     >
-                      <a :href="cursos[0].about[0].url_certificate[i]">
-                        {{ course }}
-                      </a>
-                    </li>
-                    <div class="row justify-end">
-                      <button type="button" class="buttonCertificate">
-                        <a
-                          :href="cursos[0].about[0].url_certificate[i]"
-                          target="_blank"
-                        >
-                          Ver certificados
-                        </a>
-                      </button>
-                    </div>
-                    <q-separator />
-                  </q-tab-panel>
-
-                  <q-tab-panel name="platzi">
-                    <div class="text-h6">
+                      {{ course }}
+                    </a>
+                  </li>
+                  <div class="row justify-end">
+                    <button type="button" class="buttonCertificate">
                       <a
-                        v-for="(name, i) in cursos[1].about"
-                        :key="i"
-                        :href="name.all_certificates"
+                        :href="cursos[0].about[0].url_certificate[i]"
                         target="_blank"
                       >
-                        <h5 class="sinMargin">
-                          {{ name.ruta }}
-                          <li v-for="(course, i) in name.courses" :key="i">
-                            <a
-                              class="txtNormal"
-                              :href="name.url_certificate[i]"
-                              target="_blank"
-                            >
-                              {{ course }}
-                            </a>
-                          </li>
-                        </h5>
-                        <div class="row justify-end">
-                          <button type="button" class="buttonCertificate">
-                            <a :href="name.url_certificate[i]" target="_blank">
-                              Ver certificados
-                            </a>
-                          </button>
-                        </div>
+                        Ver certificados
                       </a>
-                      <q-separator />
-                    </div>
-                  </q-tab-panel>
-                </q-tab-panels>
-              </q-card>
-            </div>
-          </q-carousel-slide>
+                    </button>
+                  </div>
+                  <q-separator />
+                </q-tab-panel>
 
-          <!-- TRABAJO -->
-          <q-carousel-slide
-            name="job"
-            class="column no-wrap flex-center sinPadding"
-          >
-            <q-scroll-area class="fit">
-              <div class="row flex-center">
-                <q-icon name="work_outline" size="40px" />
-                <h3 class="q-mx-md q-my-lg">
-                  <b>He trabajado en... </b>
-                </h3>
-              </div>
-              <q-card
-                v-for="job in jobs"
-                :key="job.name"
-                class="q-my-md card bg-secondary"
-              >
-                <q-card-section class="text-center">
-                  <q-expansion-item
-                    group="somegroup"
-                    dense
-                    dense-toggle
-                    expand-separator
-                    icon="perm_identity"
-                    :label="job.name"
-                    :caption="job.ocupation"
-                    header-class="txtTitle"
-                  >
-                    <q-card>
-                      <q-card-section class="bg-secondary txtNormal">
-                        {{ job.description }}
-                      </q-card-section>
-                    </q-card>
-                  </q-expansion-item>
-                </q-card-section>
-              </q-card>
-            </q-scroll-area>
-          </q-carousel-slide>
+                <q-tab-panel name="platzi">
+                  <div class="text-h6">
+                    <a
+                      v-for="(name, i) in cursos[1].about"
+                      :key="i"
+                      :href="name.all_certificates"
+                      target="_blank"
+                    >
+                      <h5 class="sinMargin">
+                        {{ name.ruta }}
+                        <li v-for="(course, i) in name.courses" :key="i">
+                          <a
+                            class="txtNormal"
+                            :href="name.url_certificate[i]"
+                            target="_blank"
+                          >
+                            {{ course }}
+                          </a>
+                        </li>
+                      </h5>
+                      <div class="row justify-end">
+                        <button type="button" class="buttonCertificate">
+                          <a :href="name.url_certificate[i]" target="_blank">
+                            Ver certificados
+                          </a>
+                        </button>
+                      </div>
+                    </a>
+                    <q-separator />
+                  </div>
+                </q-tab-panel>
+              </q-tab-panels>
+            </q-card>
+          </div>
+        </q-carousel-slide>
 
-          <q-carousel-slide name="portfolio">
-            <q-scroll-area class="fit">
+        <!-- TRABAJO -->
+        <q-carousel-slide
+          name="job"
+          class="column no-wrap flex-center sinPadding"
+        >
+          <q-scroll-area class="fit">
+            <div class="row flex-center">
+              <q-icon name="work_outline" size="40px" />
               <h3 class="q-mx-md q-my-lg">
-                <b>Mis proyectos están en... </b>
+                <b>He trabajado en... </b>
               </h3>
-
-              <div v-for="project in portfolio" :key="project.name_platform">
-                <a :href="project.url_platform">
-                  <h5 class="q-mb-md">
-                    {{ project.name_platform }}
-                    <q-icon :name="project.icon"></q-icon>
-                  </h5>
-                </a>
-                <li
-                  class="txtNormal"
-                  v-for="(techonology, id) in project.technologies"
-                  :key="id"
+            </div>
+            <q-card
+              v-for="job in jobs"
+              :key="job.name"
+              class="q-my-md card bg-secondary"
+            >
+              <q-card-section class="text-center">
+                <q-expansion-item
+                  group="somegroup"
+                  dense
+                  dense-toggle
+                  expand-separator
+                  icon="perm_identity"
+                  :label="job.name"
+                  :caption="job.ocupation"
+                  header-class="txtTitle"
                 >
-                  {{ techonology }}
-                </li>
-              </div>
-            </q-scroll-area>
-          </q-carousel-slide>
-        </q-carousel>
-      </div>
+                  <q-card>
+                    <q-card-section class="bg-secondary txtNormal">
+                      {{ job.description }}
+                    </q-card-section>
+                  </q-card>
+                </q-expansion-item>
+              </q-card-section>
+            </q-card>
+          </q-scroll-area>
+        </q-carousel-slide>
 
-      <!-- section right -->
-      <div style="width: 35%">
-        <q-img src="../assets/images/Personal.jpg" alt="Foto_personal"> </q-img>
+        <!-- PORTAFOLIO -->
+        <q-carousel-slide name="portfolio">
+          <q-scroll-area class="fit">
+            <h3 class="q-mx-md q-my-lg">
+              <b>Mis proyectos están en... </b>
+            </h3>
+
+            <div v-for="project in portfolio" :key="project.name_platform">
+              <a :href="project.url_platform" target="_blank">
+                <h5 class="q-mb-md">
+                  {{ project.name_platform }}
+                  <q-icon :name="project.icon"></q-icon>
+                </h5>
+              </a>
+              <li
+                class="txtNormal"
+                v-for="(techonology, id) in project.technologies"
+                :key="id"
+              >
+                {{ techonology }}
+              </li>
+            </div>
+          </q-scroll-area>
+        </q-carousel-slide>
+      </q-carousel>
+    </div>
+
+    <!-- section right -->
+    <div style="width: 35%" class="column">
+      <q-img src="../assets/images/Personal.jpg" alt="Foto_personal"> </q-img>
+      <div class="text-center">
+        <a
+          target="_blank"
+          href="https://api.whatsapp.com/send?phone=525550990404&text=Hola%2C%20Bruno.%0ATe%20queremos%20en%20nuestro%20equipo%20de%20trabajo%2C%20%C2%BFcu%C3%A1ndo%20empiezas%3F"
+        >
+          <q-img
+            style="width: 12%"
+            src="https://static.vecteezy.com/system/resources/thumbnails/031/737/231/small/whatsapp-icon-whatsapp-social-media-logo-free-png.png"
+            alt="Whatsahpp"
+          ></q-img>
+        </a>
       </div>
-    </section>
-  </q-page>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -456,5 +465,12 @@ a:hover {
 .buttonCertificate:hover {
   background-color: #5f704aaf;
   font-weight: 300;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: center;
+  background-color: #5f704a56;
+  align-items: center;
 }
 </style>
