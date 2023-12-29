@@ -180,7 +180,19 @@
               </h3>
 
               <div v-for="project in portfolio" :key="project.name_platform">
-                <h5>{{ project.name_platform }}</h5>
+                <a :href="project.url_platform">
+                  <h5 class="q-mb-md">
+                    {{ project.name_platform }}
+                    <q-icon :name="project.icon"></q-icon>
+                  </h5>
+                </a>
+                <li
+                  class="txtNormal"
+                  v-for="(techonology, id) in project.technologies"
+                  :key="id"
+                >
+                  {{ techonology }}
+                </li>
               </div>
             </q-scroll-area>
           </q-carousel-slide>
@@ -203,7 +215,7 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
-      slide: "school",
+      slide: "portfolio",
       schools: [
         {
           name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
@@ -222,7 +234,7 @@ export default defineComponent({
           ],
         },
       ],
-      tab: "oracle",
+      tab: "platzi",
       cursos: [
         {
           school: "UAEM",
@@ -349,17 +361,42 @@ export default defineComponent({
       ],
       portfolio: [
         {
+          name_platform: "Tableau",
+          url_platform: "https://github.com/BricoBC?tab=repositories",
+          icon: "insights",
+          technologies: [
+            "Dashboard Restaurante 'The Magic'",
+            "Ventas de las categorias de forma anual",
+            "Ventas desglozadas de forma anual, trimestral y mensual",
+          ],
+          urls_projects: [
+            "https://public.tableau.com/app/profile/bricobc/viz/Themagic/Historia1",
+            "https://public.tableau.com/app/profile/bricobc/viz/Segundodia/Anlisispormes",
+            "https://public.tableau.com/app/profile/bricobc/viz/Tercerdia/VentasTotales",
+          ],
+        },
+        {
           name_platform: "Google Collaboratory",
           url_platform:
             "https://drive.google.com/drive/folders/1ReelDQDxzI0JGf82yEASQ0ZDbsKyWeYJ",
-        },
-        {
-          name_platform: "Tableau",
-          url_platform: "https://public.tableau.com/app/profile/bricobc/vizzes",
+          icon: "code",
+          technologies: ["Pandas", "Matplotlib", "Numpy"],
         },
         {
           name_platform: "GitHub",
-          url_platform: "https://github.com/BricoBC?tab=repositories",
+          url_platform: "https://public.tableau.com/app/profile/bricobc/vizzes",
+          icon: "terminal",
+          technologies: [
+            "HTML",
+            "CSS",
+            "Javascript",
+            "Vue",
+            "Quasar",
+            "Docker",
+            "Python",
+            "Java",
+            "Bash",
+          ],
         },
       ],
     };
