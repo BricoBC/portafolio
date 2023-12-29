@@ -70,17 +70,23 @@
                   indicator-color="dark"
                   dense
                 >
-                  <q-tab name="mails" :label="cursos[0].school" />
-                  <q-tab name="alarms" :label="cursos[1].school" />
+                  <q-tab name="oracle" :label="cursos[0].about[0].ruta" />
+                  <q-tab name="platzi" :label="cursos[1].school" />
                 </q-tabs>
 
                 <q-tab-panels v-model="tab" animated class="bg-dark">
-                  <q-tab-panel name="mails">
-                    <div class="text-h6">Mails</div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  <q-tab-panel name="oracle">
+                    <li
+                      class="txtNormal"
+                      v-for="(course, i) in cursos[0].about[0].courses"
+                      :key="i"
+                    >
+                      {{ course }}
+                    </li>
+                    <q-separator />
                   </q-tab-panel>
 
-                  <q-tab-panel name="alarms">
+                  <q-tab-panel name="platzi">
                     <div class="text-h6">
                       <h5
                         class="sinMargin"
@@ -201,6 +207,17 @@ export default defineComponent({
                 "Base de Datos en la Nube",
                 "Autonomous NoSQL Database in Cloud (ANDC)",
               ],
+              url_certificate: [
+                "https://drive.google.com/file/d/1PkqTL52u_69r93jBeD3yer34ViTe5Vu5/view?usp=sharing",
+                "https://drive.google.com/file/d/15r166kdMjfXXi0oU4-10xtmxFH8AEPB6/view?usp=sharing",
+                "https://drive.google.com/file/d/1A8Jy-3Je3CiuFfdSVb-1zrViL7sGOIZW/view?usp=sharing",
+                "https://drive.google.com/file/d/1N9FMDqpzAqYoY4A-tK8G_TVUE5x1KwbO/view?usp=sharing",
+                "https://drive.google.com/file/d/1am6muouOk67So10JgCaGAJp2CMrMNItR/view?usp=sharing",
+                "https://drive.google.com/file/d/1lZaKGuCqH4PNpBDPGcPJ1CIN0CT4KuqA/view?usp=sharing",
+                "https://drive.google.com/file/d/1xI9WL_ESh8Ha3dAICGV0UInn95dsNhrl/view?usp=sharing",
+                "https://drive.google.com/file/d/1eDRa4DYmLY1ci3Mmd2oBjp-fT2VLEcq1/view?usp=sharing",
+                "https://drive.google.com/file/d/1KIBKu_3TBH6eCvfaUHsh_Z1AxmMHGND8/view?usp=sharing",
+              ],
             },
           ],
         },
@@ -218,6 +235,15 @@ export default defineComponent({
                 "Análisis de datos con Power BI",
                 "Bases de datos: Postgres sql",
                 "Excel Básico",
+                "Lenguaje de programación Python",
+              ],
+              url_certificate: [
+                "https://drive.google.com/file/d/1l0KzUU2TfP6MFWFYR6HlnjjR5d2XIzwF/view?usp=sharing",
+                "https://drive.google.com/file/d/1HxcegOpQoVLfbkvWzDM2WzEGbOMmtnLQ/view?usp=sharing",
+                "https://drive.google.com/file/d/14HEoTaAArU5ySQjZwGyhWH2sQfsIMfNf/view?usp=sharing",
+                "https://drive.google.com/file/d/10GDXNROO-7HbVhWopS30a13_9pQmleZA/view?usp=sharing",
+                "https://drive.google.com/file/d/1rjgnLPJV4ALaZ2jHWERoUn7QP0s9WNsY/view?usp=sharing",
+                "https://drive.google.com/file/d/1-oz6r3_0d5Tgl4zdwDUdYAUBH55tE-Nb/view?usp=sharing",
               ],
             },
             {
@@ -230,6 +256,13 @@ export default defineComponent({
                 "Asincronismo con JS",
                 "Git y Github",
                 "Ecmascript",
+              ],
+              url_certificate: [
+                "https://drive.google.com/file/d/1mdhVFoMi3NhTfziqSyiILBMNShUYUTkj/view?usp=sharing",
+                "https://drive.google.com/file/d/18Z4pNqOcsvH2eLOGZUrnMQq4Ipxb9anv/view?usp=sharing",
+                "https://drive.google.com/file/d/1eKkMVi9f4lXRRi-eZgtPyN2UGUVXJXaK/view?usp=sharing",
+                "https://drive.google.com/file/d/1ZKC-SKRbu-BkFqAEX9V8e2A95Tn88vL0/view?usp=sharing",
+                "https://drive.google.com/file/d/1JDndQlT-4r5j0jcVScj1SJuC9Ue9oxC6/view?usp=sharing",
               ],
             },
           ],
