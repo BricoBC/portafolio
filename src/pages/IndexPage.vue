@@ -85,26 +85,48 @@
                         {{ course }}
                       </a>
                     </li>
+                    <div class="row justify-end">
+                      <button type="button" class="buttonCertificate">
+                        <a
+                          :href="cursos[0].about[0].url_certificate[i]"
+                          target="_blank"
+                        >
+                          Ver certificados
+                        </a>
+                      </button>
+                    </div>
                     <q-separator />
                   </q-tab-panel>
 
                   <q-tab-panel name="platzi">
                     <div class="text-h6">
-                      <h5
-                        class="sinMargin"
+                      <a
                         v-for="(name, i) in cursos[1].about"
                         :key="i"
+                        :href="name.all_certificates"
+                        target="_blank"
                       >
-                        {{ name.ruta }}
-                        <li v-for="(course, i) in name.courses" :key="i">
-                          <a
-                            class="txtNormal"
-                            :href="name.url_certificate[i]"
-                            >{{ course }}</a
-                          >
-                        </li>
-                        <q-separator />
-                      </h5>
+                        <h5 class="sinMargin">
+                          {{ name.ruta }}
+                          <li v-for="(course, i) in name.courses" :key="i">
+                            <a
+                              class="txtNormal"
+                              :href="name.url_certificate[i]"
+                              target="_blank"
+                            >
+                              {{ course }}
+                            </a>
+                          </li>
+                        </h5>
+                        <div class="row justify-end">
+                          <button type="button" class="buttonCertificate">
+                            <a :href="name.url_certificate[i]" target="_blank">
+                              Ver certificados
+                            </a>
+                          </button>
+                        </div>
+                      </a>
+                      <q-separator />
                     </div>
                   </q-tab-panel>
                 </q-tab-panels>
@@ -169,7 +191,7 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
-      slide: "cursos",
+      slide: "school",
       schools: [
         {
           name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
@@ -188,7 +210,7 @@ export default defineComponent({
           ],
         },
       ],
-      tab: "mails",
+      tab: "oracle",
       cursos: [
         {
           school: "UAEM",
@@ -220,6 +242,9 @@ export default defineComponent({
                 "https://drive.google.com/file/d/1eDRa4DYmLY1ci3Mmd2oBjp-fT2VLEcq1/view?usp=sharing",
                 "https://drive.google.com/file/d/1KIBKu_3TBH6eCvfaUHsh_Z1AxmMHGND8/view?usp=sharing",
               ],
+              all_certificates: [
+                "https://drive.google.com/drive/folders/1QRhMEJelBh3hCGuneQ8qBviib2YQZ_9j?usp=sharing",
+              ],
             },
           ],
         },
@@ -228,7 +253,7 @@ export default defineComponent({
           icon: "cast_for_education",
           about: [
             {
-              ruta: "Análista de Datos",
+              ruta: "Data science",
               col: 2,
               icon: "query_stats",
               courses: [
@@ -246,6 +271,9 @@ export default defineComponent({
                 "https://drive.google.com/file/d/10GDXNROO-7HbVhWopS30a13_9pQmleZA/view?usp=sharing",
                 "https://drive.google.com/file/d/1rjgnLPJV4ALaZ2jHWERoUn7QP0s9WNsY/view?usp=sharing",
                 "https://drive.google.com/file/d/1-oz6r3_0d5Tgl4zdwDUdYAUBH55tE-Nb/view?usp=sharing",
+              ],
+              all_certificates: [
+                "https://drive.google.com/drive/folders/1zO3oGFOSutZoH2TRWMy_m15o1MHFJ-Vv?usp=sharing",
               ],
             },
             {
@@ -265,6 +293,9 @@ export default defineComponent({
                 "https://drive.google.com/file/d/1eKkMVi9f4lXRRi-eZgtPyN2UGUVXJXaK/view?usp=sharing",
                 "https://drive.google.com/file/d/1ZKC-SKRbu-BkFqAEX9V8e2A95Tn88vL0/view?usp=sharing",
                 "https://drive.google.com/file/d/1JDndQlT-4r5j0jcVScj1SJuC9Ue9oxC6/view?usp=sharing",
+              ],
+              all_certificates: [
+                "https://drive.google.com/drive/folders/1ytc-vWrKpdc1Xz3grbS__koLXdxxCaj3?usp=sharing",
               ],
             },
           ],
@@ -351,5 +382,15 @@ a {
 a:hover {
   color: #c2c2c2;
   font-weight: 100;
+}
+.buttonCertificate {
+  background-color: #5f704a;
+  font-size: 0.8vw;
+  font-weight: 100;
+  cursor: pointer;
+}
+.buttonCertificate:hover {
+  background-color: #5f704aaf;
+  font-weight: 300;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-primary q-mb-sm" style="opacity: .8;">      
+    <!-- <q-header elevated class="bg-primary q-mb-sm" style="opacity: 0.8">
       <q-toolbar>
         <q-btn
           flat
@@ -11,27 +11,15 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Portafolio
-        </q-toolbar-title>
-
+        <q-toolbar-title class=""> Portafolio </q-toolbar-title>
       </q-toolbar>
-    </q-header>
+    </q-header> -->
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Más de mí...
-        </q-item-label>
-      
+        <q-item-label header> Más de mí... {{ leftDrawerOpen }} </q-item-label>
       </q-list>
-    </q-drawer>
+    </q-drawer> -->
 
     <q-page-container>
       <router-view />
@@ -40,20 +28,20 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(true);
 
     return {
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
+});
 </script>
