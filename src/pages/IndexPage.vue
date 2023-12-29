@@ -81,7 +81,9 @@
                       v-for="(course, i) in cursos[0].about[0].courses"
                       :key="i"
                     >
-                      {{ course }}
+                      <a :href="cursos[0].about[0].url_certificate[i]">
+                        {{ course }}
+                      </a>
                     </li>
                     <q-separator />
                   </q-tab-panel>
@@ -94,12 +96,12 @@
                         :key="i"
                       >
                         {{ name.ruta }}
-                        <li
-                          class="txtNormal"
-                          v-for="(course, i) in name.courses"
-                          :key="i"
-                        >
-                          {{ course }}
+                        <li v-for="(course, i) in name.courses" :key="i">
+                          <a
+                            class="txtNormal"
+                            :href="name.url_certificate[i]"
+                            >{{ course }}</a
+                          >
                         </li>
                         <q-separator />
                       </h5>
@@ -342,5 +344,12 @@ export default defineComponent({
   border-style: solid;
   border-radius: 1vw;
   padding: 15px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #c2c2c2;
+  font-weight: 100;
 }
 </style>
