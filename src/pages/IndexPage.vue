@@ -197,14 +197,16 @@
                   v-for="(techonology, id) in project.technologies"
                   :key="id"
                 >
-                  <q-img
-                    class="sinMarging sinPadding"
-                    :src="project.url_images[id]"
-                  >
-                  </q-img>
-                  <div class="absolute-bottom text-center q-py-xs txtCard">
-                    {{ techonology }}
-                  </div>
+                  <a :href="project.urls_portafolio[id]" target="_blank">
+                    <q-img
+                      class="sinMarging sinPadding"
+                      :src="project.url_images[id]"
+                    >
+                    </q-img>
+                    <div class="absolute-bottom text-center q-py-xs txtCard">
+                      {{ techonology }}
+                    </div>
+                  </a>
                 </q-card-section>
               </div>
             </q-card>
@@ -392,7 +394,7 @@ export default defineComponent({
       portfolio: [
         {
           name_platform: "Tableau",
-          url_platform: "https://github.com/BricoBC?tab=repositories",
+          url_platform: "https://public.tableau.com/app/profile/bricobc/vizzes",
           icon: "insights",
           technologies: [
             "Dashboard 'The Magic'",
@@ -403,6 +405,11 @@ export default defineComponent({
             "https://lh3.googleusercontent.com/pw/ABLVV85ipe4UriXQWn36RmSjg3ndJB47tHcxbwt4i5PXSaapdAfkxsDef-1vLQSSHyxABAmMmXSi-Hykyo6L-0MkquDTXDRmMl4O_-hawyTB0zxPBpEdMhf9DZdJ7TQgk3_HffQ1J-JJN9JhyG_EjK28H2jU=w313-h225-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV86AG3qXl2magwLZQwpoZZYQAXPGBER7uFDxNeLn-NI8Ig8a8NkCcu9eBkDb_YO00EuN28GFptGE2LWQayGKOxrW0CzmBNVuoQcYU0BB-KbHN5Z35edE05eBJPtELgrJiBzmVi0QRQuiYkDjTeh6gQVj=w313-h225-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV86qva6zeN1NBzBKQ4jzouT6LB36Jf7O_UY-S2PXxFrZ4aXq1lmHWfiNCA7x_rFNbvbJJkLf0JpSOSk2MiCS6iUaampQ7s9r-jN3wApKFCpOxbAB85PmlZmW4snOhAjKrwkiVPyZieIuFTot5ix6-xK4=w313-h225-s-no-gm?authuser=0",
+          ],
+          urls_portafolio: [
+            "https://public.tableau.com/app/profile/bricobc/viz/Themagic/Historia1",
+            "https://public.tableau.com/app/profile/bricobc/viz/Tercerdia/VentasTotales",
+            "https://public.tableau.com/app/profile/bricobc/viz/Segundodia/Anlisispormes",
           ],
         },
         {
@@ -416,10 +423,15 @@ export default defineComponent({
             "https://lh3.googleusercontent.com/pw/ABLVV85qSoMGLOmOqiWO7-dqCXNgiwizv9p5i5uqgeJA88SWMGhQhFyjCR5Yh71AQ6me475RMw3j93p1JpIPOCdYzc6UKnNhPkRfhpoAGD5ETZ0FlpCYsnM7XfEKF1zYCV5zwqOCQavZIobGSQsdXvMK_9vc=w762-h548-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV87EDwLoPHLwEPbAakll-WpMJE2mMA8ZuouKJtyTT35ozBl18bfkDHn3IyHSFnWZplqHXGeS0YWVi4N9_5kiz3hjlvZVMrdcDa0l6X7vrlx5CoEPMjpMrca1_seXZfchsML8Xyp54irExqBWRlyOiVVS=w762-h548-s-no-gm?authuser=0",
           ],
+          urls_portafolio: [
+            "https://colab.research.google.com/drive/1S-CwRqh8UR0lOwIp8hyoZ1pPeayE8_sl#scrollTo=M86EVjeS3iHR",
+            "https://lh3.googleusercontent.com/pw/ABLVV85qSoMGLOmOqiWO7-dqCXNgiwizv9p5i5uqgeJA88SWMGhQhFyjCR5Yh71AQ6me475RMw3j93p1JpIPOCdYzc6UKnNhPkRfhpoAGD5ETZ0FlpCYsnM7XfEKF1zYCV5zwqOCQavZIobGSQsdXvMK_9vc=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87EDwLoPHLwEPbAakll-WpMJE2mMA8ZuouKJtyTT35ozBl18bfkDHn3IyHSFnWZplqHXGeS0YWVi4N9_5kiz3hjlvZVMrdcDa0l6X7vrlx5CoEPMjpMrca1_seXZfchsML8Xyp54irExqBWRlyOiVVS=w762-h548-s-no-gm?authuser=0",
+          ],
         },
         {
           name_platform: "GitHub",
-          url_platform: "https://public.tableau.com/app/profile/bricobc/vizzes",
+          url_platform: "https://github.com/BricoBC",
           icon: "terminal",
           technologies: [
             "HTML",
@@ -444,6 +456,18 @@ export default defineComponent({
             "https://lh3.googleusercontent.com/pw/ABLVV87Twy6_xINRfIaneApug_3kxtTzZvcCFQBLjo8GL72GVBUb0pLOgQGHoiF1oDdIXD950dzGCNfuoV9Q1CCmP5Pw4Zn2mJd6yc3aGWpDl2_KRfsQ8xPWfmjtPcGILRaNnlvInuNJqn_JZ5GINpjV5uix=w313-h225-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV842HvrTHkUVnG_YIGw12VvOSJA78n_Tvzc78XgW7qwNRtHzfSUgkOOBcNHdqnkntgb9cvtn6JK1C2C5wD21zDcXDszFvLmPpCFUJ97hQiZFD0kpTRSTkT-yi1pcTQ2HKUtYqjzS3VjNdIIi-1cx1_pp=w763-h549-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV87vdxw4oY6x9Cc9mWzDPkEks2H4qLtOijbONn8wKA4wA_mWmiHVrmXmjVFspaAdtK9zUmgY0RdasbDiuUTipf7KWF8_dC7G8HFDBOtmW3MJJVrhn4LqN05FKk_z0zjsDG5XGmx4yHTWxQy3rPbrhkiS=w313-h225-s-no-gm?authuser=0",
+          ],
+          urls_portafolio: [
+            "https://github.com/BricoBC/hyperblog",
+            "https://github.com/BricoBC/hyperblog",
+            "https://github.com/BricoBC/Autenticacion",
+            "https://github.com/BricoBC/curso_vue/tree/master",
+            "https://github.com/BricoBC/portafolio",
+            "https://github.com/BricoBC/regresion_lineal_simple",
+            "https://github.com/BricoBC/LearnPy",
+            "https://github.com/BricoBC/java_programs",
+            "https://github.com/BricoBC/Bash-Scripts",
+            "https://github.com/BricoBC/Ensamblador-PIC16F84A",
           ],
         },
       ],
