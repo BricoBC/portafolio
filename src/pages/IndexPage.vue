@@ -193,19 +193,18 @@
               <div class="row justify-around">
                 <q-card-section
                   class="my-card bg-red-1 q-ma-md sinPadding"
-                  style="width: 30%; height: 200px"
+                  style="width: 30%"
                   v-for="(techonology, id) in project.technologies"
                   :key="id"
                 >
                   <q-img
                     class="sinMarging sinPadding"
-                    style="max-height: 100%"
                     :src="project.url_images[id]"
                   >
-                    <div class="absolute-bottom txtNormal text-center">
-                      {{ techonology }}
-                    </div>
                   </q-img>
+                  <div class="absolute-bottom text-center q-py-xs txtCard">
+                    {{ techonology }}
+                  </div>
                 </q-card-section>
               </div>
             </q-card>
@@ -401,9 +400,9 @@ export default defineComponent({
             "Ventas en diferentes periodos",
           ],
           url_images: [
-            "https://png.pngtree.com/png-vector/20200729/ourlarge/pngtree-small-restaurant-building-vector-with-flat-design-png-image_2316583.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5vRpqSUPxS8nVaruEyiS-X8RPF2kXtHqC9A9l58SgZchGFxVKJrTv2coua2U64GFXNJY&usqp=CAU",
-            "https://cdn-icons-png.flaticon.com/512/4997/4997411.png",
+            "https://lh3.googleusercontent.com/pw/ABLVV85ipe4UriXQWn36RmSjg3ndJB47tHcxbwt4i5PXSaapdAfkxsDef-1vLQSSHyxABAmMmXSi-Hykyo6L-0MkquDTXDRmMl4O_-hawyTB0zxPBpEdMhf9DZdJ7TQgk3_HffQ1J-JJN9JhyG_EjK28H2jU=w313-h225-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV86AG3qXl2magwLZQwpoZZYQAXPGBER7uFDxNeLn-NI8Ig8a8NkCcu9eBkDb_YO00EuN28GFptGE2LWQayGKOxrW0CzmBNVuoQcYU0BB-KbHN5Z35edE05eBJPtELgrJiBzmVi0QRQuiYkDjTeh6gQVj=w313-h225-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV86qva6zeN1NBzBKQ4jzouT6LB36Jf7O_UY-S2PXxFrZ4aXq1lmHWfiNCA7x_rFNbvbJJkLf0JpSOSk2MiCS6iUaampQ7s9r-jN3wApKFCpOxbAB85PmlZmW4snOhAjKrwkiVPyZieIuFTot5ix6-xK4=w313-h225-s-no-gm?authuser=0",
           ],
         },
         {
@@ -413,9 +412,9 @@ export default defineComponent({
           icon: "code",
           technologies: ["Pandas", "Matplotlib", "Numpy"],
           url_images: [
-            "https://lh3.googleusercontent.com/pw/ABLVV86ee6cuk2x7NLr8vQzTeu5UxmIIeX0_VJSuIuBM9Pbh-IibelzC3F0KzLJh8ACTfTFYxSgJWvx1us-_V3OrCyVQrpiEeoWWPNrVaOoOuLD3pONO_fPiB-T4oqhY-7b7gsyJfPZbvBqbQATyzIHTj1_c=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV87Rl4ssXiV_c9RocaSNzEjjlZQ6MQ-i4qLGHK17Kd42kdY5uKHAUoGPFQwkkMC3nSjbJPkSOITE2-TRute7EmHYi78s84vOX4TXhPPyWcgQBPQIKD2j139qBDkeuDyJYeglQhCYSqEaHlohSn8tzrKm=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV86XBjoUYjAWrbSYMXdSLMqm7npr8DwEvzhQxvG0Y_cT23-_LrxJ9kErKtgEKJyt7dZYdy79tvNVORZDkfCRpHJ5f8VabyypD2mz9NoflMK88bH1h7xVWNsbAadueggbb7UIrZbE-mzn6RYNqCiN8LXX=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV84zNhrDMgSJetRGNejjpf3hWFrVt1j5IFgyr9HgkDZyrTNsWlQcN8IEDjQ9u4tYFMW-Wz4SHeZM-u-4WGh-F1_y5NX629Gy6ZoQ6nkjkie_IR6C2hO_tkmjmZvYxeCxVlRu3_2b4TJQecvhvoboQr4S=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV85qSoMGLOmOqiWO7-dqCXNgiwizv9p5i5uqgeJA88SWMGhQhFyjCR5Yh71AQ6me475RMw3j93p1JpIPOCdYzc6UKnNhPkRfhpoAGD5ETZ0FlpCYsnM7XfEKF1zYCV5zwqOCQavZIobGSQsdXvMK_9vc=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87EDwLoPHLwEPbAakll-WpMJE2mMA8ZuouKJtyTT35ozBl18bfkDHn3IyHSFnWZplqHXGeS0YWVi4N9_5kiz3hjlvZVMrdcDa0l6X7vrlx5CoEPMjpMrca1_seXZfchsML8Xyp54irExqBWRlyOiVVS=w762-h548-s-no-gm?authuser=0",
           ],
         },
         {
@@ -434,15 +433,15 @@ export default defineComponent({
             "Bash",
           ],
           url_images: [
-            "https://lh3.googleusercontent.com/pw/ABLVV87PGsLcPBEwVjSxP36KFLOmi9TDDssiGmYGJQWox9bQgWXtbuZc-n384XRY0B5d1tQfwPMAtnA8GwSUhN09PsLbAhOMwB2MsM2XcSqArmZkJEKdXDzWU74_U7n7cVjdleW4_6iGQRyfgAq7QGRBiviu=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV87NqcyJS-pAr6s7kXOMS6Y4ie-aEY7EKClouwgH1PWimkwHSQThAYRIvpXjvLGNFG_2XvacLbSmldCX_cx4ysST3ky_9nB9HN9kwgyDJvMuYNORT_miBdo4n_k_hOy_YvvFQXCxepp3fC3k0tuNahe5=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV86fQuuiWoYe8xrGD9WnzuTm4CXWKAyMolqk0GZBNr4SSG7eRFkTFLkPA-APlmS04RkaZWPvAb8L_Lo7EAtZiiiQcMCuKAGfupjWYxWVY-oJMmciykyyYFt3LVtcJCKWem97887QGtXyaJJgpRD5uoOc=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV85IrKvk7QII1vp46fMkt1uIa4C_RTmKcODpDui1ADuEB4-KrqHW3Erl_M8Lg4NcdrRHRkrhKd_PBPoxVk13_zMZD5gL5uqYrIMPMpmRuBstdU8ZllO-TbjXdtKfJy7wp5im0Zj1leWPWRaN96wRDLwE=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV86ACWO6wbQrvPvq_y6zDIRkrAQ_gWY_5eTX2M3DW70XakgqxbYtwpQtwLfC5mCqV8tmj7ozgCCwa3dgualJGCgXBp_L1SXuMz-UR71b94mq-FH3nh8uU_5svBHMrF_y0g5M8Npz0zn-KjWuXbwQandT=w762-h548-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV867fPnb1KPN08OieSbWKm-JNpeDJOGwrS7UI4-ebuc1UnVtBEls2SBNh-OZxW0gKNoAHBBCVYstGJzAgcui9QqlMSm0i66qj_yhqxt2HBQFe8NxpSeDV0mqNe7LNq-Fv2kWBSzZ4XNK01dRwZrFRzER=w763-h549-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV85U0mHar0fKeNt304l0qS3psRWH2PwkfHwrQOC8mVm8RqQJ_QsKAyvHrX-F9K7CmFpi-zZM-TvMuZZgZgkuWqkdJP96XtDBmmgoQ1ioSXRSC5iT5VX0xM5R6KRhfyHi-MbTWR-U-Tiqd5h1xi4gRiE2=w763-h549-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV85aV5FTHJdZHE42fa2VSw-YRNOQMxdSCzNR0SLyT9YtQtQpFT-RcM71WvlmGvbNsRvvjTqdb41PooSCVilKjQvJ8MTN5fNH3sjsL9PKHHY_jsL7_NiSOu4YYdMk48cvLc3zeNEXbBJ-Zig8LQUGlDaC=w313-h225-s-no-gm?authuser=0",
-            "https://lh3.googleusercontent.com/pw/ABLVV84QGAz3E2V5VBLqqIa8IM9uvlVLZaBh_Z0HBGxjTWh0ec54iErFUuEdaaVHj6jdAyvp5up7CiC20aOBt4A62PGA1Wc3rbk5jq7aaRxNJPpIRi4bZgSUEjToDu_pImIa7TSRAReNRsOu5nyXYJm_nvga=w763-h549-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV86CScv_GSDKUT3sz5EoOdcUGoLavVPv-vJaAm72Ed6Ct3ygQcC5ZcRhRd1wESLHWKZCd3svQ3fMk1tctmqVy22Sq4GnboVZZBfwdA8BzTQIxEJDrpTtn-vcApMCLLmkZ7N6LFhulRm-9q4YfCUAZCl8=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87q_2ZPrkI1Gl5srFzxS-PIk8382n4XyRwLchTkkcUjrDVInJXYSv_ywC7cAxgOsER5B399Ju1HaEQH3rgxOKxVvl-7YfijwHdG8Tx6-UbZGMvm5cU6Crg_IHtRSH_JTMASnnemO7p1CTWC_1L2Y0kQ=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87NwgxnExPr3N5sr8zQfmx2QgO1v2dYFg620CtFruZbsiSe3edCi0OiLNlIlr_oq-cM5pikN3fBZYrAwL3Azzwnk1jiONUMeeSnwrRKMNOgmgrQoEK3TbV088u2qw9qj3xtoY9w08zG4ZS1JxScPFkB=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV85qIJiiUsN69udaa36x_UTW-JF1p92qBNjK8FtIYmrEj5I9UeHLUd7xbtw2oTsPdUcjCKnHSO1MlzHNqDSCtkbmQGELSZK8FRpg9rqGO8FhQwQoUYKANQMZspqtkgHpixD7pRrMbA49lfoBKG1eHDtL=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV85SaNvEAVYxbVGpCHjmvG9TWN7YNz6FV-hhywDv4afyxBLYn-Op2QvnkEYXVsKPm2SZoMPbUYzCis8lEIR6Pxl6BmApziE8ZC7NxZO2g-u9znt9aX3zm-nQLxDs_fU8E5ny7Lt3IscWt4god7hBhQVq=w762-h548-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV84QlOKA8PzN554lJNm27D98zi2QZnB1qcn9-tpUaGxe3E3tCkIsuz51W_DgnOx0VC3dXYfcfYxbWYZOFiSinS88OdutKA4O0AtWcas7KaJOoFaqhcLg6mzgsRLEdE58VZ3-q6SwQobAxKoC_KtBT9PU=w763-h549-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87aML4EPKjGaeukgvHk1uH34WvRJv-uBh4swN2NeBwjwS55kzaas6_9rIJmqJcV2ggPFgot4pUNuraKqVN28I0qlP-23nX3GIwI8EnPWSsSY7ZinkSuIw3q1sn62XQR_m-RfMWb7i7z9nOTRRz6Z0Td=w763-h549-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87Twy6_xINRfIaneApug_3kxtTzZvcCFQBLjo8GL72GVBUb0pLOgQGHoiF1oDdIXD950dzGCNfuoV9Q1CCmP5Pw4Zn2mJd6yc3aGWpDl2_KRfsQ8xPWfmjtPcGILRaNnlvInuNJqn_JZ5GINpjV5uix=w313-h225-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV842HvrTHkUVnG_YIGw12VvOSJA78n_Tvzc78XgW7qwNRtHzfSUgkOOBcNHdqnkntgb9cvtn6JK1C2C5wD21zDcXDszFvLmPpCFUJ97hQiZFD0kpTRSTkT-yi1pcTQ2HKUtYqjzS3VjNdIIi-1cx1_pp=w763-h549-s-no-gm?authuser=0",
           ],
         },
       ],
@@ -473,6 +472,10 @@ export default defineComponent({
 }
 .txtNormal {
   font-size: 1vw;
+}
+.txtCard {
+  font-size: 0.9vw;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .sinPadding {
   padding: 0;
