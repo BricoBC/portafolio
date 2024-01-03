@@ -431,6 +431,7 @@ export default defineComponent({
             "Python",
             "Java",
             "Bash",
+            "Microcontrolador",
           ],
           url_images: [
             "https://lh3.googleusercontent.com/pw/ABLVV86CScv_GSDKUT3sz5EoOdcUGoLavVPv-vJaAm72Ed6Ct3ygQcC5ZcRhRd1wESLHWKZCd3svQ3fMk1tctmqVy22Sq4GnboVZZBfwdA8BzTQIxEJDrpTtn-vcApMCLLmkZ7N6LFhulRm-9q4YfCUAZCl8=w762-h548-s-no-gm?authuser=0",
@@ -442,6 +443,7 @@ export default defineComponent({
             "https://lh3.googleusercontent.com/pw/ABLVV87aML4EPKjGaeukgvHk1uH34WvRJv-uBh4swN2NeBwjwS55kzaas6_9rIJmqJcV2ggPFgot4pUNuraKqVN28I0qlP-23nX3GIwI8EnPWSsSY7ZinkSuIw3q1sn62XQR_m-RfMWb7i7z9nOTRRz6Z0Td=w763-h549-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV87Twy6_xINRfIaneApug_3kxtTzZvcCFQBLjo8GL72GVBUb0pLOgQGHoiF1oDdIXD950dzGCNfuoV9Q1CCmP5Pw4Zn2mJd6yc3aGWpDl2_KRfsQ8xPWfmjtPcGILRaNnlvInuNJqn_JZ5GINpjV5uix=w313-h225-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/ABLVV842HvrTHkUVnG_YIGw12VvOSJA78n_Tvzc78XgW7qwNRtHzfSUgkOOBcNHdqnkntgb9cvtn6JK1C2C5wD21zDcXDszFvLmPpCFUJ97hQiZFD0kpTRSTkT-yi1pcTQ2HKUtYqjzS3VjNdIIi-1cx1_pp=w763-h549-s-no-gm?authuser=0",
+            "https://lh3.googleusercontent.com/pw/ABLVV87vdxw4oY6x9Cc9mWzDPkEks2H4qLtOijbONn8wKA4wA_mWmiHVrmXmjVFspaAdtK9zUmgY0RdasbDiuUTipf7KWF8_dC7G8HFDBOtmW3MJJVrhn4LqN05FKk_z0zjsDG5XGmx4yHTWxQy3rPbrhkiS=w313-h225-s-no-gm?authuser=0",
           ],
         },
       ],
