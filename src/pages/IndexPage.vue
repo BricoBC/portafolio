@@ -22,13 +22,10 @@
         class="bg-dark card rounded-borders"
       >
         <!-- Escuela -->
-        <q-carousel-slide
-          name="school"
-          class="column no-wrap flex-center q-pa-md"
-        >
+        <q-carousel-slide :name="0" class="column no-wrap flex-center q-pa-md">
           <div class="row flex-center">
             <q-icon name="history_edu" size="40px" />
-            <h3 class="q-mx-md q-my-lg"><b>He estudiado...</b></h3>
+            <h3 class="q-mx-md q-my-lg"><b>He estudiado en...</b></h3>
           </div>
 
           <div
@@ -45,10 +42,7 @@
         </q-carousel-slide>
 
         <!-- CURSOS -->
-        <q-carousel-slide
-          name="cursos"
-          class="column no-wrap flex-center q-pa-md"
-        >
+        <q-carousel-slide :name="1" class="column no-wrap flex-center q-pa-md">
           <div class="row flex-center">
             <q-icon name="history_edu" size="40px" />
             <h3 class="q-mx-md q-my-lg">
@@ -133,7 +127,7 @@
 
         <!-- TRABAJO -->
         <q-carousel-slide
-          name="job"
+          :name="2"
           class="column no-wrap flex-center sinPadding"
         >
           <q-scroll-area class="fit">
@@ -172,7 +166,7 @@
         </q-carousel-slide>
 
         <!-- PORTAFOLIO -->
-        <q-carousel-slide name="portfolio">
+        <q-carousel-slide :name="3">
           <q-scroll-area class="fit">
             <h3 class="q-mx-md q-my-lg">
               <b>Mis proyectos están en... </b>
@@ -214,11 +208,11 @@
         </q-carousel-slide>
 
         <!-- INFORMACIÓN PERSONAL -->
-        <q-carousel-slide name="personal" class="row">
+        <q-carousel-slide :name="4" class="row">
           <h3 class="q-mx-md q-my-lg">
-            <b>En mi tiempo libre me encontraras... </b>
+            <b>En mi tiempo libre me encontraras: </b>
           </h3>
-          <div style="width: 35%">
+          <div style="width: 100%">
             <li
               class="txtNormal"
               v-for="activity in activities"
@@ -227,7 +221,7 @@
               {{ activity.pash }}
             </li>
           </div>
-          <q-carousel
+          <!-- <q-carousel
             style="width: 60%"
             animated
             v-model="slide2"
@@ -255,18 +249,30 @@
               :name="4"
               img-src="https://lh3.googleusercontent.com/pw/ABLVV84xGa_WGWCEQVXQ01LZT1yyDxC2BivNtu5pCOOZTIMXGE0Y9OgqlRiGV9Kbd3iQMomE_W9jX6lolCHh9oGSa7ii7YSn_ZEfsOdGzbugw2qNUieB67GpbXPdeS44voRMaE90LDsU8qtr6WNEzaHkELHyxR9gNc_3jGHeG3vWx4AD55Pw5IlOPWrqzPJY3xRkz_H-03gpSK7djBEDihOe76EcTjRQojxacL7uZEKZ4CR8JQSPoG-eMqOlzP8ZYR0fhOfO8Ap1Dxapav2KHjBD58bmrMP4wpzZZ8IECbX4XDiEw9IKEIGnVeXJOODBMi052spmbbA13PEhTsrfdzXgX8f1PieFXrHzcyvgAQ15E21ikHz0G2zZLI--ykXDfCumzib1dbFxj2_20HPFtjcC5JW9nsEAulYIllhOzO9Qs0QrJUDFr2-G4weZe3iHb2RdeZtluAeVMJQvyoZ1ZsCaJc_RkffTFdtudq7DUG878tJO2B2WWlQpgYSlsLpXy9dmoiB7JVnjrrNQcgnjXtcGryzfawkO0B1lkYPQW4G5gPpk34CANO5wnHSVfDtEDcHP5JDj-6PA_u0MYlDji6e8CRtyjF8yTfLxh35ChXn9BQt8ktnbBDF-YmtcBaJ4LUaVtI17HtvKhJY6cLQRkpEcybz2KDWSOgnrszTVhicp-excLOWgNYN5O-pf_iyBYPZ_HLwZMQsFT0eSGm5977mRqcVGf1HdAcewOF_pq3_MjsrvSqARzXv1gWBfpAv820c-YaVDdcjpNJebPl64nKY4e8ReycM7NsvG0QDLc7jHGtkr6ygqvHAcPvNVKB2X_CO4lTfa6upiW2yC2dVuk84Wt0MB6T2R2Xlei--olI5_hu_sfZbZVf0eYeSlsIWSplRhudU0QEnxXOK5F0LxsXJ4XPl4NOQlD4zugghu6ew=w764-h1018-s-no-gm?authuser=1"
             />
-          </q-carousel>
+          </q-carousel> -->
         </q-carousel-slide>
       </q-carousel>
     </div>
 
     <!-- section right -->
     <div style="width: 35%" class="column">
-      <q-img
-        src="https://lh3.googleusercontent.com/pw/ABLVV848sMp7vRliYACTsEi5pJ1ep5coZ0yxzcvmGlNPiCEEcoMg9Uj3lBKyA9c-3in6H1Foe7hywiPOHKymRwxlU7oXAN7r0S5JWzqCtvfLQLqlo-91SpRN6YGW1gC51KXx8nGspevrQidiRqsD0n7dNqg=w720-h960-s-no-gm?authuser=0"
-        alt="Foto_personal"
+      <q-carousel
+        animated
+        v-model="slide"
+        navigation
+        infinite
+        transition-prev="slide-right"
+        transition-next="slide-left"
+        style="height: 100vh"
       >
-      </q-img>
+        <q-carousel-slide
+          v-for="(photo, i) in misPhotos"
+          :key="i"
+          :name="i"
+          :img-src="photo"
+        />
+      </q-carousel>
+
       <div class="text-center">
         <a
           target="_blank"
@@ -291,8 +297,14 @@ export default defineComponent({
   data() {
     return {
       name: "Bruno Nicolas",
-      miPhoto: "Personal.jpg",
-      slide: "personal",
+      misPhotos: [
+        "https://lh3.googleusercontent.com/pw/ABLVV850PLKeDW20gc-Geg7tNhJbep0FBmq_ApLaI7Oqm-1bSImJqwvass-nnb6vf9_AQ2uWa2JzUR7l0JX6t3KBrct1AbhcvMAGM0xNBq87J8rEthjSFg1FBVzYMEwR4DnsYuO85goIn0OZMvicqLaUFkpBYg=w679-h1018-s-no-gm?authuser=1",
+        "https://lh3.googleusercontent.com/pw/ABLVV856m02RSDyBSlPvs-u8EO4GoADYwlm1pWKW3mj79CMsLMYT3uKASIPFZ_RuvEhc-g84BB5jV92S-7uFFjJNg2v4_zl9nWtdd0oR0xtaMUK5FRW1tIiNjL_DMYKBt1ual8p7gYbID3-n0ZqyQHLdUa-gImS_mPxCssfXI-6lpnrOQyGGmXrWwZ4BjmGF-h0iil2sRC3zpJk-OKg77DxvFZdSbj_XPo-qHwnTpb5J-ckfanZTCU24yRdnvrKWGIH5pxzJJ-WpUrhTOt6mUALwns_IQdEEZ72gHvjE6VstaAvW8Gh1sP8TOIIMDpsLzc5R5sRumDzhy_xAJg0zoasy2493wU5Yovge8JtpqRpdC79m8P0oTHLtqAC7RdxZ4ERekG0ccKzXATWqvaPl4lN5yO63YSsSncPfDEldm0-JeWkoW1A_AXwbo9bhJau7ZrWFn4MuBAtpikcXjgfgG_JmjcieJ1I0BnYLuMH4o4FhIviLgUucZWLMTnQkLTOk-mCVXRhQcERG3YpM2-VsYFkTxMMzBT6k8ntlIGs1vKs8Igsb7lskjJKSu-FOEp0M2f-WRsqymbWtOP54BnLiTz8Hoj-mdxv93gb85gq7fO-s8fBqSvdh1CUIduavewMJuOyXUsFCFixIOkMP0PyU7PhwPnED_eQGShVNY8EPgVLv3Qc-nvJ3IG3Z7naognfKV6Kyr-zwT0BTXOXOdCBWdfxQsDs8JZQJ000pwu55lF1gqXGATzKmmsod2Nj1RNrlobgBWhevYeuWKVwNGAgqu22Uqbwlc-zlSK_ObEusucfliSuSkR3oRpn8gQCXnGblzbpwC1O7fBi0fF7sODpYaIE_uayuXtVLqpSlSllv02VRBwIe-qhLXN4dYPlJURFhtPRBpPHDH8FfD57iOpfp1CcMx1atsjzopi-t7_qcV_g=w1357-h1018-s-no-gm?authuser=1",
+        "https://lh3.googleusercontent.com/pw/ABLVV848sMp7vRliYACTsEi5pJ1ep5coZ0yxzcvmGlNPiCEEcoMg9Uj3lBKyA9c-3in6H1Foe7hywiPOHKymRwxlU7oXAN7r0S5JWzqCtvfLQLqlo-91SpRN6YGW1gC51KXx8nGspevrQidiRqsD0n7dNqg=w720-h960-s-no-gm?authuser=0",
+        "https://lh3.googleusercontent.com/pw/ABLVV84g68fAFQUzaUeUKLeNILRMvm74wwqdqBdcrKCOc58P8BhYZOOLzHYAcjCtj2B0eei94yG2bsABX4TpV3pOgPtochsXMeywchhASWrGkvJQ8_ag9vtq9elhzfXdMcjtFJlTB2vc3BsHWkfnHf6JeV3mSyieYkk32ZPJwBjhCOCO1o-9PMLwGjbe07sug1vwWz9vEioPqABlr1d6IGCJ8Hh5andwOGTRakfvG46ytVJMuNpGFYF2Kn4TIf5FTyah3uvqvhESIIm3D_Qg8msxLFcj1VTfjXLoYlNTEIKSVDobS2Fe4rvV-9EtqQkYQTT_huMI3t7F29LV2jshvWLU7jm3j37gRxzBkZbnwtap7skTJqNqBSH83tglH-4rik9URGl89uyD2Rgkc-BVsWCCUOKSjJC2KLmD1bsXH4HQE3F3jXcr8ovvFGgLW-FFiqeflzUB3I-3jgaqpkanJ6WfKCO3kvGtSaBuWamyYlRf0SLKwVEaCySGWfvjTKNJZVF_14F-LyBjuGQR-1g9W0lTQO2izipNEpYEabCdLRMCdFbsHSkb8ha1mgDzaIP6-s5O-twNO1ga8PYm24KydnsVc5vGYCAkttyVri5iZU0K6EiaM6d6rjfPwE1bQfdjYLWDQgFbitNzLHqo-uFspAm3wDYbarXKTrVnOl6RuYLG4QpfxHCwg-8uE2Hl5efv4EjbN5PuGjZgk_U1qYUfWff9bQKBikmkqN_-V5pao52qwmpC8US5-6oeGWISuiLUrB3EVlHJqz99wy8Wzxj7KJBd1CjHywLKnbq2j8w96gBaXQ9ot0CGz9AiKUo8Ln7ACzrCTUPNYQk9iA1zlTsOEgEAhkUNmrYH_ssgmAcNSP-_QcCbkCUIcCFJAmQqjlASGzRsUrshjTC4oE4nJUb6zL1Al3kSg1m5VCu2suxjj4Am=w764-h1018-s-no-gm?authuser=1",
+        "https://lh3.googleusercontent.com/pw/ABLVV84g68fAFQUzaUeUKLeNILRMvm74wwqdqBdcrKCOc58P8BhYZOOLzHYAcjCtj2B0eei94yG2bsABX4TpV3pOgPtochsXMeywchhASWrGkvJQ8_ag9vtq9elhzfXdMcjtFJlTB2vc3BsHWkfnHf6JeV3mSyieYkk32ZPJwBjhCOCO1o-9PMLwGjbe07sug1vwWz9vEioPqABlr1d6IGCJ8Hh5andwOGTRakfvG46ytVJMuNpGFYF2Kn4TIf5FTyah3uvqvhESIIm3D_Qg8msxLFcj1VTfjXLoYlNTEIKSVDobS2Fe4rvV-9EtqQkYQTT_huMI3t7F29LV2jshvWLU7jm3j37gRxzBkZbnwtap7skTJqNqBSH83tglH-4rik9URGl89uyD2Rgkc-BVsWCCUOKSjJC2KLmD1bsXH4HQE3F3jXcr8ovvFGgLW-FFiqeflzUB3I-3jgaqpkanJ6WfKCO3kvGtSaBuWamyYlRf0SLKwVEaCySGWfvjTKNJZVF_14F-LyBjuGQR-1g9W0lTQO2izipNEpYEabCdLRMCdFbsHSkb8ha1mgDzaIP6-s5O-twNO1ga8PYm24KydnsVc5vGYCAkttyVri5iZU0K6EiaM6d6rjfPwE1bQfdjYLWDQgFbitNzLHqo-uFspAm3wDYbarXKTrVnOl6RuYLG4QpfxHCwg-8uE2Hl5efv4EjbN5PuGjZgk_U1qYUfWff9bQKBikmkqN_-V5pao52qwmpC8US5-6oeGWISuiLUrB3EVlHJqz99wy8Wzxj7KJBd1CjHywLKnbq2j8w96gBaXQ9ot0CGz9AiKUo8Ln7ACzrCTUPNYQk9iA1zlTsOEgEAhkUNmrYH_ssgmAcNSP-_QcCbkCUIcCFJAmQqjlASGzRsUrshjTC4oE4nJUb6zL1Al3kSg1m5VCu2suxjj4Am=w764-h1018-s-no-gm?authuser=1",
+      ],
+      slide: 0,
       schools: [
         {
           name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
@@ -524,6 +536,9 @@ export default defineComponent({
         },
         {
           pash: "Jugando videojuegos:",
+        },
+        {
+          pash: "Escuchar música:",
         },
         {
           pash: "Leyendo libros:",
