@@ -52,7 +52,7 @@
           <div class="row flex-center">
             <q-icon name="history_edu" size="40px" />
             <h3 class="q-mx-md q-my-lg">
-              <b>Estos son mis cursos que he tomado: </b>
+              <b>Mis cursos que he tomado: </b>
             </h3>
           </div>
           <div class="" style="width: 90%; height: 90vh">
@@ -85,7 +85,7 @@
                   <div class="row justify-end">
                     <button type="button" class="buttonCertificate">
                       <a
-                        :href="cursos[0].about[0].url_certificate[i]"
+                        :href="cursos[0].about[0].all_certificates"
                         target="_blank"
                       >
                         Ver certificados
@@ -212,6 +212,51 @@
             </q-card>
           </q-scroll-area>
         </q-carousel-slide>
+
+        <!-- INFORMACIÓN PERSONAL -->
+        <q-carousel-slide name="personal" class="row">
+          <h3 class="q-mx-md q-my-lg">
+            <b>En mi tiempo libre me encontraras... </b>
+          </h3>
+          <div style="width: 35%">
+            <li
+              class="txtNormal"
+              v-for="activity in activities"
+              :key="activity.pash"
+            >
+              {{ activity.pash }}
+            </li>
+          </div>
+          <q-carousel
+            style="width: 60%"
+            animated
+            v-model="slide2"
+            infinite
+            arrows
+            :autoplay="autoplay"
+            transition-prev="slide-right"
+            transition-next="slide-left"
+            @mouseenter="autoplay = false"
+            @mouseleave="autoplay = true"
+          >
+            <q-carousel-slide
+              :name="1"
+              img-src="https://lh3.googleusercontent.com/pw/ABLVV85CvR92u-PZ7xIdR5rdzf5oLuZmnqVlmtB1VLWPH2vdH7HKsnzXBT01Jb5y3zK2ChGbM0KxZ86h0ja8-ptPjwROJzTNCj5oFwc723kRAMxEtr0cbW4fpYCP4y4oSNxwendDy4II0qkPHqPhmkOjU1p6A9XKaVvAUlb_VCgAVxdmsIZS8kd3HEnR3Lo3XoD-xdb65qO9qZezVm2JsKDLuoGJmV1gJAy0qYtDfNqoepEULSw9uK4ZQIHrPJgdf9EOYx71pzKhz_fK818_Wwy_bJ3NXdmtv5hir-GVApHyrvA-Tc9ooemJ3jQqQq8ZHMPIEsP-zZg-wdkKGCOm1P71wts6X2tqcepysBivK7CtlJj1MXS5xnzFn83q313Nol9NHP96D9o60T0L0AXczOsOPbirsUNhHCp3fcYI9t7x5xVEljzsmDWkijwDE0u5LK3e8cb67zw4mA_0gdjI91uAaRH8UAzTH2ndHabaJgIuk3XqAcqx6dClYI0yUWeEAW-dL1G_oCXfTopJnWoTItpeqjLuvxie-lOuGtr3XVwnzHfjKrmdXoi6LEACs7XShCUBUGK7tLK0HBhyfAAk2ISR8DYzQtG6U4CVA7D1-1s-tVpeJIvnU5fMas8_MbuOkJe-gEhXS4PJpf31BN6RO7yDrIfspdnj6ak3LrOoyfywvA__HHbswP5lEwh_WRt_Gu4_X2397ue9iyKsbyt_d8hB0Wtwm0wIY94kfz2Mpn6QFRBgTzw9yiSlZX-nz-r-WCwMoYo5_k_ucTyGx7TetvjBN0F-N2Dqgq64QAoQ-rVl4o8AXTS0kW4OlA4nl9ms0HrfKBvbLMmWUKCki1pNpk_F8y1HPCvtYnnjAigc2CdSLc8r8j-tPeDRRNBc8ATw2S72u08nn61qMF4AUpWnchINJX0dfHbwaCq22iXmPP64=w679-h1018-s-no-gm?authuser=1"
+            />
+            <q-carousel-slide
+              :name="2"
+              img-src="https://lh3.googleusercontent.com/pw/ABLVV86V5YStL6jP2cJYuaKSBw4vWxhO7TrbyPOuvNCw97oNgsAewRN7K1hJk3FVgTXr5IvLOayQMdpEeFcMU-C3NJ9G50jlHyMaSuttk2ufra3KjQ3a7M6mPl8NO2SDRj43j-uKXZy__q4sgmMcbBb0JlXZkF7ORolRzMCwjWWsAO-Lo74udukHOMWGToBBReJbjASmHY1YKf88rkdF8cfzuhkGGh8YVWSeKrNQ_PG_wcb8ipgt3O4J4Noc6kKKfVZh4sZCOQC9vGru9kAwj3FFSaZzdXlTP9lx4NYJqCeHrufwR9HHRcRxVKOSzNCapjJv9Rn6pcwABKkmoPmCH-2HB4rpO83OJavkg-5_qIhCYAnk5t19A8fU8qtFWv6Cc0ugKSOr8DmzW1gO7Pk6-EzxYN-Pyu-4lredpfrgZohgcm3sHdnB__OhIOZ4EX1EdF5wG9OdzUmz_Q9SvxoE5HLERhaIdaN4ucHg4uvbdJRjDke326vDMAS7g9Ud7WnseuHXVT-Itk3rLmUFhZRP4gzI8BOlAw1aHLESkuajDNa0OAf7kygfpNlL2QLv2qDZ4a1YN0Yx8_lXW7y2rPZIx1lyDyGF6NaP2kOO8GSr8SFppTV6t5q5UwrIivVOs0vwk0mp1u29IUJk9TbLK1zgrPhel5h5yIIJ_0b138JFlp7ZpjC6C1ITBNpa3Z6LwfDHJl7jjwfWk4OHkWfs6H8CVphMQzoynhgDtswdv6hQ4gpK_i7f7RusaJO5zCccVqdYNDvrZvAepRa1oYco17revsS4nhCtPfQqUyytZEVTtMhkBfkEmlndHKnC1MD0zT59hH_6FxTVZGpAxV-Ftvb8IVE2IoIxOGPmggr9RvKt_GQCd0pNUVUReJTWwQN1u5HPskahkae84hU_emEkftv18RpM9Rpitk2BqatpaWIuDxRr=w1650-h720-s-no-gm?authuser=1"
+            />
+            <q-carousel-slide
+              :name="3"
+              img-src="https://lh3.googleusercontent.com/pw/ABLVV84g68fAFQUzaUeUKLeNILRMvm74wwqdqBdcrKCOc58P8BhYZOOLzHYAcjCtj2B0eei94yG2bsABX4TpV3pOgPtochsXMeywchhASWrGkvJQ8_ag9vtq9elhzfXdMcjtFJlTB2vc3BsHWkfnHf6JeV3mSyieYkk32ZPJwBjhCOCO1o-9PMLwGjbe07sug1vwWz9vEioPqABlr1d6IGCJ8Hh5andwOGTRakfvG46ytVJMuNpGFYF2Kn4TIf5FTyah3uvqvhESIIm3D_Qg8msxLFcj1VTfjXLoYlNTEIKSVDobS2Fe4rvV-9EtqQkYQTT_huMI3t7F29LV2jshvWLU7jm3j37gRxzBkZbnwtap7skTJqNqBSH83tglH-4rik9URGl89uyD2Rgkc-BVsWCCUOKSjJC2KLmD1bsXH4HQE3F3jXcr8ovvFGgLW-FFiqeflzUB3I-3jgaqpkanJ6WfKCO3kvGtSaBuWamyYlRf0SLKwVEaCySGWfvjTKNJZVF_14F-LyBjuGQR-1g9W0lTQO2izipNEpYEabCdLRMCdFbsHSkb8ha1mgDzaIP6-s5O-twNO1ga8PYm24KydnsVc5vGYCAkttyVri5iZU0K6EiaM6d6rjfPwE1bQfdjYLWDQgFbitNzLHqo-uFspAm3wDYbarXKTrVnOl6RuYLG4QpfxHCwg-8uE2Hl5efv4EjbN5PuGjZgk_U1qYUfWff9bQKBikmkqN_-V5pao52qwmpC8US5-6oeGWISuiLUrB3EVlHJqz99wy8Wzxj7KJBd1CjHywLKnbq2j8w96gBaXQ9ot0CGz9AiKUo8Ln7ACzrCTUPNYQk9iA1zlTsOEgEAhkUNmrYH_ssgmAcNSP-_QcCbkCUIcCFJAmQqjlASGzRsUrshjTC4oE4nJUb6zL1Al3kSg1m5VCu2suxjj4Am=w764-h1018-s-no-gm?authuser=1"
+            />
+            <q-carousel-slide
+              :name="4"
+              img-src="https://lh3.googleusercontent.com/pw/ABLVV84xGa_WGWCEQVXQ01LZT1yyDxC2BivNtu5pCOOZTIMXGE0Y9OgqlRiGV9Kbd3iQMomE_W9jX6lolCHh9oGSa7ii7YSn_ZEfsOdGzbugw2qNUieB67GpbXPdeS44voRMaE90LDsU8qtr6WNEzaHkELHyxR9gNc_3jGHeG3vWx4AD55Pw5IlOPWrqzPJY3xRkz_H-03gpSK7djBEDihOe76EcTjRQojxacL7uZEKZ4CR8JQSPoG-eMqOlzP8ZYR0fhOfO8Ap1Dxapav2KHjBD58bmrMP4wpzZZ8IECbX4XDiEw9IKEIGnVeXJOODBMi052spmbbA13PEhTsrfdzXgX8f1PieFXrHzcyvgAQ15E21ikHz0G2zZLI--ykXDfCumzib1dbFxj2_20HPFtjcC5JW9nsEAulYIllhOzO9Qs0QrJUDFr2-G4weZe3iHb2RdeZtluAeVMJQvyoZ1ZsCaJc_RkffTFdtudq7DUG878tJO2B2WWlQpgYSlsLpXy9dmoiB7JVnjrrNQcgnjXtcGryzfawkO0B1lkYPQW4G5gPpk34CANO5wnHSVfDtEDcHP5JDj-6PA_u0MYlDji6e8CRtyjF8yTfLxh35ChXn9BQt8ktnbBDF-YmtcBaJ4LUaVtI17HtvKhJY6cLQRkpEcybz2KDWSOgnrszTVhicp-excLOWgNYN5O-pf_iyBYPZ_HLwZMQsFT0eSGm5977mRqcVGf1HdAcewOF_pq3_MjsrvSqARzXv1gWBfpAv820c-YaVDdcjpNJebPl64nKY4e8ReycM7NsvG0QDLc7jHGtkr6ygqvHAcPvNVKB2X_CO4lTfa6upiW2yC2dVuk84Wt0MB6T2R2Xlei--olI5_hu_sfZbZVf0eYeSlsIWSplRhudU0QEnxXOK5F0LxsXJ4XPl4NOQlD4zugghu6ew=w764-h1018-s-no-gm?authuser=1"
+            />
+          </q-carousel>
+        </q-carousel-slide>
       </q-carousel>
     </div>
 
@@ -247,7 +292,7 @@ export default defineComponent({
     return {
       name: "Bruno Nicolas",
       miPhoto: "Personal.jpg",
-      slide: "portfolio",
+      slide: "personal",
       schools: [
         {
           name: "Universidad Autónoma del Estado de México Plantel 'Ecatepec'",
@@ -276,6 +321,8 @@ export default defineComponent({
               ruta: "Oracle Academy",
               col: 2,
               icon: "cloud_circle",
+              all_certificates:
+                "https://drive.google.com/drive/folders/1QRhMEJelBh3hCGuneQ8qBviib2YQZ_9j?usp=sharing",
               courses: [
                 "Perfiles profesionales en la industria de Tecnología",
                 "Nube 101",
@@ -471,6 +518,22 @@ export default defineComponent({
           ],
         },
       ],
+      activities: [
+        {
+          pash: "Practicando algún deporte:",
+        },
+        {
+          pash: "Jugando videojuegos:",
+        },
+        {
+          pash: "Leyendo libros:",
+        },
+        {
+          pash: "Viendo alguna serie o pelicula:",
+        },
+      ],
+      slide2: 1,
+      autoplay: true,
     };
   },
   methods: {},
