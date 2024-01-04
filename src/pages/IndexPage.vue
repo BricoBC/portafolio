@@ -209,8 +209,8 @@
 
         <!-- INFORMACIÓN PERSONAL -->
         <q-carousel-slide :name="4" class="row">
-          <h3 class="q-mx-md q-my-lg">
-            <b>En mi tiempo libre me encontraras: </b>
+          <h3 class="sinMargin q-pa-none txtTitle">
+            En mi tiempo libre me encontraras:
           </h3>
           <div style="width: 100%">
             <li
@@ -541,7 +541,6 @@ export default defineComponent({
       ],
       chartOptions: {
         chart: {
-          height: 400,
           type: "bar",
         },
         colors: ["#076541"],
@@ -617,7 +616,8 @@ export default defineComponent({
   background-color: rgba(0, 0, 0, 0.299);
 }
 .txtTitle {
-  font-size: 1.3vw;
+  font-size: 1.8vw;
+  font-weight: 1000;
 }
 .txtNormal {
   font-size: 1vw;
