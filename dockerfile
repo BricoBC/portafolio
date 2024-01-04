@@ -1,28 +1,17 @@
-# Etapa 1: Construir la aplicación Quasar
-FROM node:18-alpine AS builder
+#Descargo la imamgen
+FROM node:18-alpine
 
-WORKDIR /app
+#En la máquina virtual de Docker se crea la carpeta
+RUN mkdir -p /home/appPortafolio/
 
-# Copia solo los archivos necesarios para instalar dependencias
-COPY package*.json ./
+# Copia desde el sistema anfitrio al de Docker
+COPY . /home/appPortafolio
 
-# Instala dependencias
+WORKDIR /home/appPortafolio
 RUN npm install
 
-# Copia el resto de la aplicación
-COPY . .
+# Puerto al cual se conecta el sistema anfitrio a la aplicación cuando Docker lo ejecuta
+EXPOSE 9000
 
-# Construye la aplicación Quasar para producción
-RUN npm run build
-
-# Etapa 2: Configurar Nginx y copiar los archivos generados por Quasar
-FROM nginx:stable-alpine
-
-# Copia solo los archivos necesarios de la etapa de construcción
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Expone el puerto 80
-EXPOSE 80
-
-# Comando para arrancar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+#En la ruta, se abre la terminal y se ejecuta lo siguiente:
+CMD [ "npm","run", "dev"]
