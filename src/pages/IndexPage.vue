@@ -243,7 +243,7 @@
         infinite
         transition-prev="slide-down"
         transition-next="slide-up"
-        style="height: 100vh"
+        style="height: 90vh"
       >
         <q-carousel-slide
           v-for="(photo, i) in misPhotos"
@@ -253,7 +253,7 @@
         />
       </q-carousel>
 
-      <div class="text-center">
+      <div class="text-center" style="height: 10vh">
         <a
           target="_blank"
           href="https://api.whatsapp.com/send?phone=525550990404&text=Hola%2C%20Bruno.%0ATe%20queremos%20en%20nuestro%20equipo%20de%20trabajo%2C%20%C2%BFcu%C3%A1ndo%20empiezas%3F"
